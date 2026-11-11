@@ -263,6 +263,67 @@ body.opened #btnMusic{display:flex}
   .rv{opacity:1;transform:none}
   .sec-icon,.gal-num,.tag-big,.vid-btn,.gb-item,.gt-item,.orn-floaty,.orn-spin,.orn-hang{animation:none !important}
 }
+
+/* ===== BESPOKE TONGKONAN PUSAKA: UKIRAN YANG BERBICARA (2026-11-12) ===== */
+@keyframes shimmerSweep{0%{transform:translateX(-130%) skewX(-14deg)}55%,100%{transform:translateX(240%) skewX(-14deg)}}
+@keyframes smokeRise{0%{transform:translate3d(0,0,0) scale(.55);opacity:0}18%{opacity:.5}70%{opacity:.32}100%{transform:translate3d(16px,-92px,0) scale(1.5);opacity:0}}
+@keyframes medaliSpin{to{transform:rotate(360deg)}}
+@keyframes sorePulse{from{opacity:.35}to{opacity:.75}}
+@keyframes routeFlow{to{stroke-dashoffset:-30}}
+@keyframes kopiDrift{0%{transform:translate3d(-8px,0,0) rotate(0deg);opacity:0}10%{opacity:.9}90%{opacity:.85}100%{transform:translate3d(46px,64px,0) rotate(200deg);opacity:0}}
+@keyframes cloudDrift{from{transform:translateX(-4%)}to{transform:translateX(4%)}}
+.shimmer-wrap{position:absolute;left:50%;bottom:9%;width:118%;height:52%;transform:translateX(-50%);overflow:hidden;pointer-events:none;z-index:3;border-radius:40% 40% 0 0}
+.shimmer-band{position:absolute;top:-10%;height:120%;width:34%;background:linear-gradient(100deg,transparent,rgba(255,214,140,.34) 45%,rgba(255,244,205,.5) 52%,transparent 72%);animation:shimmerSweep 5.6s ease-in-out infinite}
+.smoke-field{position:absolute;left:50%;bottom:56%;width:120px;height:110px;transform:translateX(-38%);z-index:3;pointer-events:none}
+.smoke{position:absolute;bottom:0;border-radius:50%;background:radial-gradient(circle,rgba(246,238,220,.85),rgba(246,238,220,0) 68%);opacity:0;animation:smokeRise 7s ease-in-out infinite}
+.horn-stack{position:absolute;left:31%;bottom:31%;z-index:4;display:flex;flex-direction:column;gap:1px;pointer-events:none}
+.horn-stack svg{width:26px;height:26px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.6))}
+.alang-side{position:absolute;bottom:16.5%;width:21%;z-index:2;filter:drop-shadow(0 8px 14px rgba(0,0,0,.5))}
+.sore-glow{position:absolute;left:50%;top:16%;width:74%;height:26%;transform:translateX(-50%);border-radius:50%;background:radial-gradient(50% 50% at 50% 50%,rgba(255,176,84,.55),transparent 70%);animation:sorePulse 4.4s ease-in-out infinite alternate;pointer-events:none;z-index:2}
+.gate{position:absolute;bottom:0;width:50%;height:19.5%;opacity:.97;filter:drop-shadow(0 -6px 16px rgba(0,0,0,.45));z-index:5;overflow:hidden;pointer-events:none;transition:transform 1.05s cubic-bezier(.6,0,.8,.4),opacity 1.05s ease}
+.gate img{width:206%;max-width:none;height:100%;object-fit:cover}
+.gate-l{left:0}.gate-r{right:0}.gate-r img{margin-left:-106%}
+body.opening .gate-l{transform:translateX(-96%) rotate(-3deg);opacity:.25}
+body.opening .gate-r{transform:translateX(96%) rotate(3deg);opacity:.25}
+/* PANEL UKIRAN struktural — motif BERBEDA per section */
+.ukir-panel{position:relative;z-index:2;margin:0 auto 18px;border:3px solid #140a04;border-radius:12px;overflow:hidden;background:#241108;box-shadow:0 12px 26px rgba(0,0,0,.55),inset 0 0 0 2px rgba(244,193,104,.4)}
+.ukir-panel img{width:100%;height:52px;object-fit:cover;display:block}
+.ukir-panel span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(15,6,2,.86);border:1px solid rgba(244,193,104,.65);color:#ffe9bd;border-radius:999px;padding:4px 13px;font-size:9.5px;font-weight:800;letter-spacing:.3em;white-space:nowrap}
+/* COUNTDOWN PA'BARRE ALLO — medali matahari berputar lambat, angka di pusat */
+.medali-wrap{position:relative;width:286px;height:286px;margin:4px auto 10px}
+.medali-ring{position:absolute;inset:0;width:100%;height:100%;animation:medaliSpin 70s linear infinite;filter:drop-shadow(0 12px 26px rgba(0,0,0,.6))}
+.medali-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:212px;height:212px;border-radius:50%;background:radial-gradient(circle at 42% 34%,#5c1d10,#2a0e04 68%);border:2px solid rgba(244,193,104,.8);box-shadow:inset 0 0 0 5px rgba(244,193,104,.16),inset 0 0 34px rgba(0,0,0,.65);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px}
+.medali-core .m-label{font-size:9.5px;letter-spacing:.3em;color:var(--gold-l);font-weight:800}
+.medali-core .countdown{margin:9px 0 3px;gap:6px;width:100%;justify-content:center}
+.medali-core .cd-box{max-width:44px;padding:8px 1px 6px;border-radius:11px;background:rgba(20,8,3,.72)}
+.medali-core .cd-box b{font-size:19px}
+.medali-core .cd-box span{font-size:7.5px;letter-spacing:.12em}
+.medali-core .m-date{font-size:10.5px;color:#eed9ac;letter-spacing:.14em}
+/* GALERI DINDING TONGKONAN — papan bersambung */
+.dinding{background-image:url('assets/undangya/tongkonan-pusaka/tongk-dinding-papan.webp');background-size:320px auto;border:3px solid #140a04;border-radius:14px;box-shadow:inset 0 0 0 2px rgba(244,193,104,.35),0 16px 34px rgba(0,0,0,.55);padding:14px 8px 4px;position:relative;z-index:2}
+.dinding .gal-rail{gap:7px;padding-top:2px}
+.dinding .gal-slide .frame-uk{border-width:2px;padding:5px}
+.gal-slide.carving{flex:0 0 46%}
+.gal-slide.carving .cv{height:340px;border:3px solid #140a04;border-radius:12px;overflow:hidden;background:#241108;box-shadow:inset 0 0 0 2px rgba(244,193,104,.4)}
+.gal-slide.carving .cv img{width:100%;height:100%;object-fit:cover}
+/* LOVE STORY MENURUNI LEMBAH */
+.lembah-wrap{position:relative;margin:2px 0 20px;border-radius:14px;overflow:hidden;border:3px solid #140a04;box-shadow:0 14px 30px rgba(0,0,0,.5)}
+.lembah-wrap .lembah-bg{width:100%;display:block;animation:cloudDrift 12s ease-in-out infinite alternate}
+.lembah-svg{position:absolute;inset:0;width:100%;height:100%}
+.lembah-path{stroke:#fff3d0;stroke-width:3.4;fill:none;stroke-dasharray:8 7;animation:routeFlow 2.4s linear infinite;filter:drop-shadow(0 2px 3px rgba(40,16,2,.8))}
+.lembah-stop{position:absolute;width:29px;height:29px;margin:-14.5px;border-radius:50%;background:#7e1c14;border:2px solid var(--gold-l);color:#ffedbe;font-family:Georgia,serif;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 14px rgba(0,0,0,.55);animation:sorePulse 3s ease-in-out infinite alternate}
+.kopi-fall{position:absolute;border-radius:50%;background:radial-gradient(circle at 35% 30%,#e0584a,#8e2323 70%);pointer-events:none;opacity:0;animation:kopiDrift 11s linear infinite}
+/* NAV BAWAH */
+#bottomNav{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:100%;max-width:430px;z-index:60;display:none;background:rgba(20,8,3,.93);border-top:1px solid var(--line);backdrop-filter:blur(8px);padding:8px 6px calc(8px + env(safe-area-inset-bottom))}
+body.opened #bottomNav{display:flex}
+#bottomNav a{flex:1;text-align:center;color:#e8d5a4;text-decoration:none;font-size:10px;font-weight:700;letter-spacing:.05em;padding:4px 0}
+#bottomNav svg{width:21px;height:21px;display:block;margin:0 auto 3px}
+@media (prefers-reduced-motion: reduce){
+  .shimmer-band,.smoke,.medali-ring,.lembah-path,.lembah-bg,.kopi-fall,.sore-glow{animation:none !important}
+  .smoke,.kopi-fall{opacity:0}
+  .gate{transition:none}
+}
+
 </style>
 </head>
 <body>
@@ -295,6 +356,14 @@ body.opened #btnMusic{display:flex}
       <img class="lyr tegak flw-in" style="right:14%;bottom:-1.4%;width:19%;--sd:8.6s;--sdl:-1s;--ed:2.8s" src="assets/undangya/tongkonan-pusaka/tnm-pampas.webp" alt="">
       <img class="lyr tegak flw-in" style="left:30%;bottom:-1%;width:12%;--sd:8s;--sdl:-3s;--ed:2.9s" src="assets/undangya/tongkonan-pusaka/flw-matahari.webp" alt="">
       <img class="lyr tegak flw-in" style="right:30%;bottom:-1%;width:12%;--sd:8.8s;--sdl:-5s;--ed:3s" src="assets/undangya/tongkonan-pusaka/flw-krisan.webp" alt="">
+      <div class="sore-glow" aria-hidden="true"></div>
+      <div class="smoke-field" aria-hidden="true"><span class="smoke" style="left:8%;width:34px;height:34px"></span><span class="smoke" style="left:34%;width:26px;height:26px;animation-delay:1.6s"></span><span class="smoke" style="left:56%;width:40px;height:40px;animation-delay:3.1s"></span><span class="smoke" style="left:24%;width:22px;height:22px;animation-delay:4.4s"></span><span class="smoke" style="left:66%;width:24px;height:24px;animation-delay:5.5s"></span></div>
+      <div class="shimmer-wrap" aria-hidden="true"><div class="shimmer-band"></div></div>
+      <img class="lyr alang-side" style="left:-3%" src="assets/undangya/tongkonan-pusaka/tongk-alang.webp" alt="" aria-hidden="true">
+      <img class="lyr alang-side" style="right:-3%" src="assets/undangya/tongkonan-pusaka/tongk-alang.webp" alt="" aria-hidden="true">
+      <div class="horn-stack" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#ic-horn"/></svg><svg viewBox="0 0 64 64"><use href="#ic-horn"/></svg><svg viewBox="0 0 64 64"><use href="#ic-horn"/></svg><svg viewBox="0 0 64 64"><use href="#ic-horn"/></svg><svg viewBox="0 0 64 64"><use href="#ic-horn"/></svg></div>
+      <div class="gate gate-l" aria-hidden="true"><img src="assets/undangya/tongkonan-pusaka/tongk-gerbang-bambu.webp" alt=""></div>
+      <div class="gate gate-r" aria-hidden="true"><img src="assets/undangya/tongkonan-pusaka/tongk-gerbang-bambu.webp" alt=""></div>
       <div class="ffly-field" id="fflyCover" aria-hidden="true"></div>
       <div class="petal-field" id="petalCover" aria-hidden="true"></div>
       <div class="cover-shade"></div>
@@ -313,6 +382,7 @@ body.opened #btnMusic{display:flex}
   <main id="content">
     <!-- ================= PEMBUKA ================= -->
     <section id="sambutan">
+      <div class="ukir-panel rv rv-zoom" aria-hidden="true"><img src="assets/undangya/tongkonan-pusaka/tongk-panel-barre.webp" alt="" loading="lazy" decoding="async"><span>PA’BARRE ALLO · MATAHARI</span></div>
       <div class="sec-petals" aria-hidden="true"></div>
       <div class="sec-head head-glass">
         <svg class="sec-icon rv rv-rot d1" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-sun"/></svg>
@@ -330,6 +400,7 @@ body.opened #btnMusic{display:flex}
 
     <!-- ================= MEMPELAI ================= -->
     <section id="mempelai">
+      <div class="ukir-panel rv rv-zoom" aria-hidden="true"><img src="assets/undangya/tongkonan-pusaka/tongk-panel-tedong.webp" alt="" loading="lazy" decoding="async"><span>PA’TEDONG · KEPALA KERBAU UKIR</span></div>
       <div class="sec-petals" aria-hidden="true"></div>
       <div class="sec-head head-glass">
         <svg class="sec-icon rv rv-rotr d1" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-horn"/></svg>
@@ -362,12 +433,20 @@ body.opened #btnMusic{display:flex}
 
     <!-- ================= LOVE STORY ================= -->
     <section id="kisah">
+      <div class="ukir-panel rv rv-zoom" aria-hidden="true"><img src="assets/undangya/tongkonan-pusaka/tongk-panel-sussu.webp" alt="" loading="lazy" decoding="async"><span>PA’SUSSU’ · GARIS PAHAT</span></div>
       <div class="sec-head head-glass">
         <svg class="sec-icon rv rv-rot d1" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-heart"/></svg>
         <div class="sec-kicker rv rv-kick d2">LOVE STORY</div>
         <h2 class="sec-title serif rv rv-up d3">Kisah Tongkonan Kami</h2>
         <p class="sec-sub rv rv-left d4">Perjalanan kisah kami, dari perjumpaan pertama hingga hari bahagia</p>
       </div>
+      <div class="lembah-wrap rv rv-zoom">
+        <img class="lembah-bg" src="assets/undangya/tongkonan-pusaka/tongk-sawah-teras.webp" alt="Sawah bertingkat dan perbukitan lembah Toraja" loading="lazy" decoding="async">
+        <svg class="lembah-svg" viewBox="0 0 390 236" preserveAspectRatio="none" aria-hidden="true"><path class="lembah-path" d="M36 26 C120 78 96 118 180 138 S320 168 356 208"/></svg>
+        <span class="lembah-stop" style="left:9%;top:11%">1</span><span class="lembah-stop" style="left:36%;top:47%">2</span><span class="lembah-stop" style="left:63%;top:62%">3</span><span class="lembah-stop" style="left:91%;top:88%">4</span>
+        <span class="kopi-fall" style="left:22%;top:12%;width:11px;height:11px"></span><span class="kopi-fall" style="left:58%;top:6%;width:9px;height:9px;animation-delay:3.4s"></span><span class="kopi-fall" style="left:78%;top:20%;width:10px;height:10px;animation-delay:6.8s"></span>
+      </div>
+      <p class="sec-sub rv rv-kick" style="text-align:center;margin:-8px auto 18px;max-width:330px">Menuruni lembah Toraja: dari kampung adat menyusuri sawah bertingkat, menuju tongkonan keluarga — tempat kisah kami pulang.</p>
       <div class="tl">
         <div class="tl-item rv rv-left"><span class="tl-dot" aria-hidden="true"></span><div class="tl-card">
           <img class="tl-thumb rv rv-zoom d1" src="assets/undangya/tongkonan-pusaka/galeri-2.webp" alt="Pasangan di halaman tongkonan saat pagi" loading="lazy" decoding="async">
@@ -397,13 +476,19 @@ body.opened #btnMusic{display:flex}
         <div class="sec-kicker rv rv-kick d2">HITUNG MUNDUR</div>
         <h2 class="sec-title serif rv rv-zoom d3">Menuju Hari Bahagia</h2>
       </div>
-      <div class="countdown rv rv-zoom" id="countdown" data-target="2027-06-12T08:00:00+07:00" aria-label="Hitung mundur menuju akad nikah">
-        <div class="cd-box rv rv-num d1"><b id="cdD">0</b><span>Hari</span></div>
-        <div class="cd-box rv rv-num d2"><b id="cdH">0</b><span>Jam</span></div>
-        <div class="cd-box rv rv-num d3"><b id="cdM">0</b><span>Menit</span></div>
-        <div class="cd-box rv rv-num d4"><b id="cdS">0</b><span>Detik</span></div>
+      <div class="medali-wrap rv rv-zoom">
+        <img class="medali-ring" src="assets/undangya/tongkonan-pusaka/tongk-barre-allo.webp" alt="" aria-hidden="true">
+        <div class="medali-core">
+          <div class="m-label">PA’BARRE ALLO</div>
+          <div class="countdown" id="countdown" data-target="2027-06-12T08:00:00+07:00" aria-label="Hitung mundur menuju akad nikah">
+            <div class="cd-box rv rv-num d1"><b id="cdD">0</b><span>Hari</span></div>
+            <div class="cd-box rv rv-num d2"><b id="cdH">0</b><span>Jam</span></div>
+            <div class="cd-box rv rv-num d3"><b id="cdM">0</b><span>Menit</span></div>
+            <div class="cd-box rv rv-num d4"><b id="cdS">0</b><span>Detik</span></div>
+          </div>
+          <div class="m-date">12 · 06 · 2027</div>
+        </div>
       </div>
-<div class="rv rv-zoom d2"><img class="sec-orn orn-spin" style="width:138px;margin-top:2px;margin-bottom:14px" src="assets/undangya/tongkonan-pusaka/tongk-barre-allo.webp" alt="" loading="lazy" decoding="async"></div>
       <p class="demo-note rv rv-up" style="margin:0 auto 26px;max-width:280px;background:rgba(24,10,4,.88);border:1px solid rgba(229,154,53,.45);border-radius:10px;padding:6px 10px">Sabtu, 12 Juni 2027 — Jakarta</p>
       <div class="card event rv rv-left">
         <svg class="sec-icon rv rv-rot d1" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-rings"/></svg>
@@ -424,6 +509,7 @@ body.opened #btnMusic{display:flex}
         <button class="btn btn-alt" type="button" data-ics data-file="resepsi-meyzsa-fahrezzi" data-title="Resepsi Meyzsa &amp; Fahrezzi" data-start="20270612T040000Z" data-end="20270612T060000Z" data-loc="The Ritz-Carlton Jakarta, Pacific Place, Jakarta Selatan" data-desc="Resepsi Pernikahan Meyzsa Putri Ananda &amp; Ahmad Fahrezzi Pratama">UNDUH .ICS</button>
       </div>
       <div class="card rv rv-zoom" style="margin-top:26px;text-align:center">
+        <div class="ukir-panel rv rv-zoom" aria-hidden="true"><img src="assets/undangya/tongkonan-pusaka/tongk-panel-kopi.webp" alt="" loading="lazy" decoding="async"><span>KOPI TORAJA</span></div>
         <h3 class="sub-h rv rv-kick d1" style="margin-top:0">Dresscode Tamu</h3>
         <p class="sub-sub rv rv-kick d2">Berkenan hadir dengan nuansa warna berikut</p>
         <div class="dc-chips"><span class="dc-chip rv rv-chip d1"><span class="dc-dot" style="background:#8E2323"></span>Merah Darah</span><span class="dc-chip rv rv-chip d2"><span class="dc-dot" style="background:#1D1712"></span>Hitam Arang</span><span class="dc-chip rv rv-chip d3"><span class="dc-dot" style="background:#D98E32"></span>Emas Ukiran</span><span class="dc-chip rv rv-chip d4"><span class="dc-dot" style="background:#EFE3C8"></span>Putih Tulang</span><span class="dc-chip rv rv-chip d5"><span class="dc-dot" style="background:#C65A21"></span>Oranye Senja</span><span class="dc-chip rv rv-chip d6"><span class="dc-dot" style="background:#5F7247"></span>Hijau Sawah</span></div>
@@ -455,13 +541,17 @@ body.opened #btnMusic{display:flex}
       </div>
       <div class="gal-hint rv rv-kick">— GESER KANAN · KIRI —</div>
       <div class="rail-label rv rv-kick d1">POTRET PILIHAN · BERFRAME UKIRAN</div>
+      <div class="dinding rv rv-zoom">
       <div class="gal-rail" id="railMain">
         <div class="gal-slide rv rv-zoom d1"><span class="gal-num">01 / 08</span><figure><div class="frame-uk ph"><img class="gal-photo" src="assets/undangya/tongkonan-pusaka/galeri-1.webp" alt="Pasangan duduk di pelaminan di depan tongkonan berukiran merah-hitam-emas" loading="lazy"></div><figcaption class="gal-cap rv rv-kick d3">Pelaminan Tongkonan</figcaption></figure></div>
         <div class="gal-slide rv rv-left d2"><span class="gal-num">02 / 08</span><figure><div class="frame-uk ph"><img class="gal-photo" src="assets/undangya/tongkonan-pusaka/galeri-2.webp" alt="Pasangan bergandengan tangan di halaman tongkonan pada pagi berkabut" loading="lazy"></div><figcaption class="gal-cap rv rv-kick d3">Halaman Tongkonan Pagi</figcaption></figure></div>
+        <div class="gal-slide carving rv rv-rot d3"><span class="gal-num">UKIRAN</span><figure><div class="cv"><img src="assets/undangya/tongkonan-pusaka/tongk-panel-tedong.webp" alt="Panel ukiran murni pa'tedong pada dinding tongkonan" loading="lazy"></div><figcaption class="gal-cap rv rv-kick d3">Panel Pa’tedong</figcaption></figure></div>
         <div class="gal-slide rv rv-rot d3"><span class="gal-num">05 / 08</span><figure><div class="frame-uk ph"><img class="gal-photo" src="assets/undangya/tongkonan-pusaka/galeri-5.webp" alt="Pasangan melewati gerbang ukiran kayu bertanduk kerbau" loading="lazy"></div><figcaption class="gal-cap rv rv-kick d3">Gerbang Ukiran</figcaption></figure></div>
+        <div class="gal-slide carving rv rv-left d4"><span class="gal-num">UKIRAN</span><figure><div class="cv"><img src="assets/undangya/tongkonan-pusaka/tongk-panel-barre.webp" alt="Panel ukiran murni pa'barre allo pada dinding tongkonan" loading="lazy"></div><figcaption class="gal-cap rv rv-kick d3">Panel Pa’barre Allo</figcaption></figure></div>
         <div class="gal-slide rv rv-right d4"><span class="gal-num">07 / 08</span><figure><div class="frame-uk ph"><img class="gal-photo" src="assets/undangya/tongkonan-pusaka/galeri-7.webp" alt="Pasangan di depan tongkonan pada malam hari diterangi lentera gantung" loading="lazy"></div><figcaption class="gal-cap rv rv-kick d3">Malam Lentera</figcaption></figure></div>
       </div>
-      <div class="rail-meta rv rv-kick d2"><span class="rail-frac" id="fracMain">1 / 4</span><span class="rail-dots" id="dotsMain"></span></div>
+      </div>
+      <div class="rail-meta rv rv-kick d2"><span class="rail-frac" id="fracMain">1 / 6</span><span class="rail-dots" id="dotsMain"></span></div>
       <div class="rail-label rv rv-kick d1">POTRET LEPAS · TANPA FRAME</div>
       <div class="gal-rail" id="railSub">
         <div class="gal-slide small rv rv-left d1"><span class="gal-num">03 / 08</span><figure><div class="plain ph"><img class="gal-photo" src="assets/undangya/tongkonan-pusaka/galeri-3.webp" alt="Pasangan berjalan di antara alang dan sawah terasering" loading="lazy"></div><figcaption class="gal-cap rv rv-kick d3">Alang &amp; Sawah</figcaption></figure></div>
@@ -475,6 +565,7 @@ body.opened #btnMusic{display:flex}
 
     <!-- ================= VIDEO TEASER ================= -->
     <section id="cuplikan">
+      <div class="ukir-panel rv rv-zoom" aria-hidden="true"><img src="assets/undangya/tongkonan-pusaka/tongk-passura-spiral.webp" alt="" loading="lazy" decoding="async"><span>PA’SSURA · SULUR SPIRAL</span></div>
       <div class="sec-head head-glass">
         <svg class="sec-icon rv rv-rotr d1" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-sun"/></svg>
         <div class="sec-kicker rv rv-kick d2">CUPLIKAN</div>
@@ -596,11 +687,13 @@ body.opened #btnMusic{display:flex}
         <p class="rv rv-up d2" style="font-size:13.5px;line-height:1.75;margin-top:8px">Kediaman Mempelai Wanita<br>Jl. Melati Indah No. 12, Kebayoran Baru,<br>Jakarta Selatan 12120 <span style="opacity:.65">(alamat contoh)</span></p>
         <button class="salin-btn rv rv-chip d3" type="button" data-copytext="Kediaman Mempelai Wanita — Jl. Melati Indah No. 12, Kebayoran Baru, Jakarta Selatan 12120 (alamat contoh)">SALIN ALAMAT</button>
       </div>
+      <img class="sec-orn tegak" style="width:120px" src="assets/undangya/tongkonan-pusaka/tongk-kopi.webp" alt="" loading="lazy" decoding="async">
       <div class="rv rv-zoom d2"><img class="sec-orn " style="width:min(330px,88%)" src="assets/undangya/tongkonan-pusaka/tongk-sarita.webp" alt="" loading="lazy" decoding="async"></div>
     </section>
 
     <!-- ================= TURUT MENGUNDANG ================= -->
     <section id="turut">
+      <div class="ukir-panel rv rv-zoom" aria-hidden="true"><img src="assets/undangya/tongkonan-pusaka/tongk-passura-garis.webp" alt="" loading="lazy" decoding="async"><span>PA’SSURA · GARIS ZIGZAG</span></div>
       <div class="sec-head head-glass">
         <svg class="sec-icon rv rv-rot d1" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-horn"/></svg>
         <div class="sec-kicker rv rv-kick d2">TURUT MENGUNDANG</div>
@@ -635,6 +728,13 @@ body.opened #btnMusic{display:flex}
     </section>
     <p class="foot-note rv rv-up">Undangan digital contoh “Tongkonan Pusaka” oleh UndangYa! — seluruh nama, tanggal, dan nomor adalah data contoh.<br>Musik latar: “Petals on the Stone Floor”.</p>
   </main>
+<nav id="bottomNav" aria-label="Navigasi undangan">
+  <a href="#sambutan"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-sun"/></svg>Beranda</a>
+  <a href="#mempelai"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-horn"/></svg>Mempelai</a>
+  <a href="#acara"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-tong"/></svg>Acara</a>
+  <a href="#galeri"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-heart"/></svg>Galeri</a>
+  <a href="#rsvp"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-gift"/></svg>RSVP</a>
+</nav>
 </div>
 
 <button id="btnMusic" type="button" aria-label="Putar atau hentikan musik latar">
