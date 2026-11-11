@@ -211,14 +211,57 @@ body.opened #btnMusic{display:flex}
 .turut-card{text-align:center}
 .turut-card h4{font-family:Georgia,serif;font-size:16.5px;margin-bottom:6px}
 .turut-card p{font-size:13px;line-height:1.85}
-.rv{opacity:0}
-.rv.in{opacity:1;transition:opacity .9s ease,transform .9s cubic-bezier(.22,.8,.3,1)}
+.rv{opacity:0;transition:opacity .9s ease,transform .9s cubic-bezier(.22,.8,.3,1);transition-delay:var(--rd,0s)}
+.rv.in{opacity:1;transform:none}
 .rv-up{transform:translateY(44px)}.rv-zoom{transform:scale(.86)}
 .rv-left{transform:translateX(-46px)}.rv-right{transform:translateX(46px)}
-.rv.in.rv-up,.rv.in.rv-zoom,.rv.in.rv-left,.rv.in.rv-right{transform:none}
+.rv-down{transform:translateY(-38px)}
+.rv-rot{transform:rotate(-5deg) scale(.9) translateY(22px)}
+.rv-rotr{transform:rotate(5deg) scale(.9) translateY(22px)}
+.rv-drop{transform:translateY(-30px) scale(.94)}
+.rv-num{transform:translateY(26px) scale(.8)}
+.rv-kick{transform:translateY(14px) scale(.95)}
+.rv-chip{transform:scale(.55)}
+.d1{--rd:.07s}.d2{--rd:.14s}.d3{--rd:.21s}.d4{--rd:.28s}.d5{--rd:.35s}.d6{--rd:.42s}
+/* ORNAMEN KHAS PER SECTION (SVG tangan, WebP transparan) */
+.sec-orn{display:block;margin:20px auto 0;filter:drop-shadow(0 8px 18px rgba(0,0,0,.5));position:relative;z-index:2}
+.orn-floaty{animation:ornFloat 6.4s ease-in-out infinite alternate}
+@keyframes ornFloat{from{transform:translateY(0)}to{transform:translateY(-9px)}}
+.orn-spin{animation:ornSpin 48s linear infinite}
+@keyframes ornSpin{to{transform:rotate(360deg)}}
+.orn-hang{position:absolute;top:-4px;right:16px;width:58px;z-index:3;transform-origin:50% 0;animation:swayG 9s ease-in-out infinite alternate;filter:drop-shadow(0 8px 14px rgba(0,0,0,.5))}
+/* MIKRO-ANIMASI teks kecil & ikon (CSS kompositor saja) */
+.sec-icon{display:block;animation:iconBob 5.4s ease-in-out infinite alternate}
+@keyframes iconBob{from{transform:translateY(0) rotate(-2.4deg)}to{transform:translateY(-5px) rotate(2.4deg)}}
+.gal-num{animation:badgeBob 4.6s ease-in-out infinite alternate}
+@keyframes badgeBob{from{transform:translateY(0)}to{transform:translateY(3px)}}
+.tag-big{animation:tagGlow 3.4s ease-in-out infinite alternate}
+@keyframes tagGlow{from{text-shadow:0 0 0 rgba(244,193,104,0)}to{text-shadow:0 0 18px rgba(244,193,104,.45)}}
+.vid-btn{animation:vidPulse 2.6s ease-in-out infinite}
+@keyframes vidPulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.09)}}
+/* ITEM DINAMIS JS (ucapan/check-in/galeri tamu): animasi masuk CSS berjenjang */
+.gb-item{animation:itemIn .55s cubic-bezier(.22,.8,.3,1) both}
+.gb-item:nth-child(2){animation-delay:.07s}.gb-item:nth-child(3){animation-delay:.14s}.gb-item:nth-child(4){animation-delay:.21s}.gb-item:nth-child(n+5){animation-delay:.28s}
+@keyframes itemIn{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+.gt-item{animation:itemZoom .5s cubic-bezier(.22,.8,.3,1) both}
+@keyframes itemZoom{from{opacity:0;transform:scale(.78)}to{opacity:1;transform:none}}
+/* KONTRAS MUTLAK */
+.guest-pill{background:rgba(13,5,2,.74);border:1px solid rgba(244,193,104,.55);border-radius:18px;padding:12px 24px 14px;backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);box-shadow:0 12px 28px rgba(0,0,0,.55);animation:fadeUp 1s 4.3s ease both}
+.guest-pill .cover-guest{animation:none}
+.guest-pill .gname{animation:none;margin-top:4px}
+.cover-kicker{background:rgba(13,5,2,.6);border:1px solid rgba(244,193,104,.5);border-radius:999px;padding:7px 16px;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.gal-cap{display:block;width:fit-content;max-width:92%;margin-left:auto;margin-right:auto;background:rgba(15,6,2,.82);border:1px solid rgba(229,154,53,.4);border-radius:999px;padding:5px 14px}
+.gal-hint{width:fit-content;margin:-8px auto 12px;background:rgba(15,6,2,.82);border:1px solid rgba(229,154,53,.45);border-radius:999px;padding:6px 16px}
+.rail-label{display:inline-block;background:rgba(15,6,2,.78);border:1px solid rgba(229,154,53,.35);border-radius:999px;padding:4px 12px}
+.rail-frac{background:rgba(15,6,2,.78);border-radius:999px;padding:4px 11px}
+.note-chip{background:rgba(18,7,3,.86);border:1px solid rgba(229,154,53,.4);border-radius:12px;padding:8px 14px}
+.glass-bar{background:rgba(22,9,4,.84);border:1px solid rgba(229,154,53,.4);border-radius:14px;padding:10px 14px;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.foot-note{background:rgba(9,3,1,.84);border-top:1px solid rgba(229,154,53,.4);color:#e8d9b5;padding-top:16px}
+.field input::placeholder,.field textarea::placeholder{color:#c9ad7d;opacity:1}
 @media (prefers-reduced-motion: reduce){
-  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;transition-delay:0s !important}
   .rv{opacity:1;transform:none}
+  .sec-icon,.gal-num,.tag-big,.vid-btn,.gb-item,.gt-item,.orn-floaty,.orn-spin,.orn-hang{animation:none !important}
 }
 </style>
 </head>
@@ -261,8 +304,8 @@ body.opened #btnMusic{display:flex}
       <h1 class="cover-names"><span class="nm-line">Meyzsa</span><span class="amp">&amp;</span><span class="nm-line">Fahrezzi</span></h1>
       <div class="cover-date">SABTU · 12 JUNI 2027</div>
       <div class="cover-spacer"></div>
-      <div class="cover-guest">Kepada Yth. Bapak/Ibu/Saudara/i</div>
-      <div class="gname" id="guestName">Tamu Undangan</div>
+      <div class="guest-pill"><div class="cover-guest">Kepada Yth. Bapak/Ibu/Saudara/i</div>
+      <div class="gname" id="guestName">Tamu Undangan</div></div>
       <button id="btnOpen" type="button">✦ BUKA UNDANGAN</button>
     </div>
   </header>
@@ -271,167 +314,172 @@ body.opened #btnMusic{display:flex}
     <!-- ================= PEMBUKA ================= -->
     <section id="sambutan">
       <div class="sec-petals" aria-hidden="true"></div>
-      <div class="sec-head rv rv-up">
-        <svg class="sec-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-sun"/></svg>
-        <div class="sec-kicker">DENGAN MEMOHON RAHMAT ALLAH SWT</div>
-        <h2 class="sec-title serif">Kurre Sumange’</h2>
-        <svg class="divider" viewBox="0 0 130 16" aria-hidden="true"><path d="M2 8 H46 M84 8 H128" stroke="#e59a35" stroke-width="1.4"/><path d="M65 1 L72 8 L65 15 L58 8Z" fill="none" stroke="#f4c168" stroke-width="1.4"/><circle cx="65" cy="8" r="2.2" fill="#b03327"/></svg>
+      <div class="sec-head head-glass">
+        <svg class="sec-icon rv rv-rot d1" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-sun"/></svg>
+        <div class="sec-kicker rv rv-kick d2">DENGAN MEMOHON RAHMAT ALLAH SWT</div>
+        <h2 class="sec-title serif rv rv-up d3">Kurre Sumange’</h2>
+        <svg class="divider rv rv-zoom d4" viewBox="0 0 130 16" aria-hidden="true"><path d="M2 8 H46 M84 8 H128" stroke="#e59a35" stroke-width="1.4"/><path d="M65 1 L72 8 L65 15 L58 8Z" fill="none" stroke="#f4c168" stroke-width="1.4"/><circle cx="65" cy="8" r="2.2" fill="#b03327"/></svg>
       </div>
       <div class="card rv rv-zoom" style="text-align:center">
-        <p class="corm" style="font-size:18.5px;line-height:1.75;font-style:italic">“Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang.”</p>
-        <p style="margin-top:12px;font-size:12px;letter-spacing:.24em;color:var(--gold-l);font-weight:700">QS. AR-RUM : 21</p>
-        <p style="margin-top:16px;font-size:14px;line-height:1.75">Di bawah atap perahu tongkonan yang menjulang ke langit Toraja, dua hati yang dipertemukan kini hendak membangun rumah tangganya. Dengan penuh syukur — <i>kurre sumange’</i>, terima kasih atas berkat Tuhan — kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberi doa restu pada hari bahagia kami.</p>
+        <p class="corm rv rv-kick d1" style="font-size:18.5px;line-height:1.75;font-style:italic">“Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang.”</p>
+        <p class="rv rv-kick d2" style="margin-top:12px;font-size:12px;letter-spacing:.24em;color:var(--gold-l);font-weight:700">QS. AR-RUM : 21</p>
+        <p class="rv rv-up d3" style="margin-top:16px;font-size:14px;line-height:1.75">Di bawah atap perahu tongkonan yang menjulang ke langit Toraja, dua hati yang dipertemukan kini hendak membangun rumah tangganya. Dengan penuh syukur — <i>kurre sumange’</i>, terima kasih atas berkat Tuhan — kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberi doa restu pada hari bahagia kami.</p>
       </div>
+      <div class="rv rv-zoom d2"><img class="sec-orn " style="width:min(330px,88%)" src="assets/undangya/tongkonan-pusaka/tongk-passura-spiral.webp" alt="" loading="lazy" decoding="async"></div>
     </section>
 
     <!-- ================= MEMPELAI ================= -->
     <section id="mempelai">
       <div class="sec-petals" aria-hidden="true"></div>
-      <div class="sec-head rv rv-up">
-        <svg class="sec-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-horn"/></svg>
-        <div class="sec-kicker">MEMPELAI</div>
-        <h2 class="sec-title serif">Pengantin Putri &amp; Putra</h2>
-        <p class="sec-sub">Dua sejoli berbahagia dalam busana adat Toraja</p>
+      <div class="sec-head head-glass">
+        <svg class="sec-icon rv rv-rotr d1" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-horn"/></svg>
+        <div class="sec-kicker rv rv-kick d2">MEMPELAI</div>
+        <h2 class="sec-title serif rv rv-zoom d3">Pengantin Putri &amp; Putra</h2>
+        <p class="sec-sub rv rv-right d4">Dua sejoli berbahagia dalam busana adat Toraja</p>
       </div>
       <div class="couple-grid">
         <div class="person rv rv-left">
-          <div class="frame-uk"><img src="assets/undangya/tongkonan-pusaka/bride.webp" alt="Mempelai wanita, Meyzsa Putri Ananda, berbusana adat Toraja merah-hitam dengan kalung manik kandaure di depan dinding ukiran tongkonan"></div>
-          <h3>Meyzsa Putri Ananda</h3>
-          <div class="gelar">Meyzsa Putri Ananda, S.Pd.</div>
-          <p>Putri dari<br><b>Bapak H. Muhammad Ridwan</b><br>&amp; <b>Ibu Hj. Siti Aminah</b></p>
-          <a class="ig-btn" href="https://instagram.com/meyzsa.contoh" target="_blank" rel="noopener">@meyzsa.contoh</a>
+          <div class="frame-uk rv rv-zoom d1"><img src="assets/undangya/tongkonan-pusaka/bride.webp" alt="Mempelai wanita, Meyzsa Putri Ananda, berbusana adat Toraja merah-hitam dengan kalung manik kandaure di depan dinding ukiran tongkonan"></div>
+          <h3 class="rv rv-kick d2">Meyzsa Putri Ananda</h3>
+          <div class="gelar rv rv-kick d3">Meyzsa Putri Ananda, S.Pd.</div>
+          <p class="rv rv-up d3">Putri dari<br><b>Bapak H. Muhammad Ridwan</b><br>&amp; <b>Ibu Hj. Siti Aminah</b></p>
+          <a class="ig-btn rv rv-chip d4" href="https://instagram.com/meyzsa.contoh" target="_blank" rel="noopener">@meyzsa.contoh</a>
         </div>
+        <div class="rv rv-zoom d2"><img class="sec-orn orn-floaty" style="width:190px;margin:0 auto" src="assets/undangya/tongkonan-pusaka/tongk-tanduk-kabongo.webp" alt="" loading="lazy" decoding="async"></div>
         <div class="person rv rv-right">
-          <div class="frame-uk"><img src="assets/undangya/tongkonan-pusaka/groom.webp" alt="Mempelai pria, Ahmad Fahrezzi Pratama, berikat kepala passapu dan busana adat Toraja hitam-merah dengan parang hias di depan tongkonan"></div>
-          <h3>Ahmad Fahrezzi Pratama</h3>
-          <div class="gelar">Ahmad Fahrezzi Pratama, S.T.</div>
-          <p>Putra dari<br><b>Bapak H. Bambang Sutrisno</b><br>&amp; <b>Ibu Hj. Ratna Dewi</b></p>
-          <a class="ig-btn" href="https://instagram.com/fahrezzi.contoh" target="_blank" rel="noopener">@fahrezzi.contoh</a>
+          <div class="frame-uk rv rv-zoom d1"><img src="assets/undangya/tongkonan-pusaka/groom.webp" alt="Mempelai pria, Ahmad Fahrezzi Pratama, berikat kepala passapu dan busana adat Toraja hitam-merah dengan parang hias di depan tongkonan"></div>
+          <h3 class="rv rv-kick d2">Ahmad Fahrezzi Pratama</h3>
+          <div class="gelar rv rv-kick d3">Ahmad Fahrezzi Pratama, S.T.</div>
+          <p class="rv rv-up d3">Putra dari<br><b>Bapak H. Bambang Sutrisno</b><br>&amp; <b>Ibu Hj. Ratna Dewi</b></p>
+          <a class="ig-btn rv rv-chip d4" href="https://instagram.com/fahrezzi.contoh" target="_blank" rel="noopener">@fahrezzi.contoh</a>
         </div>
       </div>
       <div class="rv rv-zoom panel-glass" style="margin-top:36px;padding:20px 18px 14px">
-        <div class="frame-uk" style="height:380px"><img src="assets/undangya/tongkonan-pusaka/hero.webp" alt="Meyzsa dan Fahrezzi berbusana adat Toraja bergandengan tangan di depan tongkonan di lembah sawah saat matahari terbit keemasan"></div>
-        <p class="gal-cap">Di kaki tongkonan pusaka, tempat kisah kami berakar.</p>
+        <div class="frame-uk rv rv-zoom d1" style="height:380px"><img src="assets/undangya/tongkonan-pusaka/hero.webp" alt="Meyzsa dan Fahrezzi berbusana adat Toraja bergandengan tangan di depan tongkonan di lembah sawah saat matahari terbit keemasan"></div>
+        <p class="gal-cap rv rv-kick d2">Di kaki tongkonan pusaka, tempat kisah kami berakar.</p>
       </div>
     </section>
 
     <!-- ================= LOVE STORY ================= -->
     <section id="kisah">
-      <div class="sec-head rv rv-up">
-        <svg class="sec-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-heart"/></svg>
-        <div class="sec-kicker">LOVE STORY</div>
-        <h2 class="sec-title serif">Kisah Tongkonan Kami</h2>
-        <p class="sec-sub">Perjalanan kisah kami, dari perjumpaan pertama hingga hari bahagia</p>
+      <div class="sec-head head-glass">
+        <svg class="sec-icon rv rv-rot d1" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-heart"/></svg>
+        <div class="sec-kicker rv rv-kick d2">LOVE STORY</div>
+        <h2 class="sec-title serif rv rv-up d3">Kisah Tongkonan Kami</h2>
+        <p class="sec-sub rv rv-left d4">Perjalanan kisah kami, dari perjumpaan pertama hingga hari bahagia</p>
       </div>
       <div class="tl">
         <div class="tl-item rv rv-left"><span class="tl-dot" aria-hidden="true"></span><div class="tl-card">
-          <img class="tl-thumb" src="assets/undangya/tongkonan-pusaka/galeri-2.webp" alt="Pasangan di halaman tongkonan saat pagi" loading="lazy" decoding="async">
-          <div class="tl-year">2019</div><div class="tl-title">Pertama Bertemu</div>
-          <p>Berawal dari pertemuan sederhana di perantauan — obrolan tentang kampung halaman dan rumah adat hari itu menjadi awal perjalanan kisah kami.</p></div></div>
+          <img class="tl-thumb rv rv-zoom d1" src="assets/undangya/tongkonan-pusaka/galeri-2.webp" alt="Pasangan di halaman tongkonan saat pagi" loading="lazy" decoding="async">
+          <div class="tl-year rv rv-kick d2">2019</div><div class="tl-title rv rv-kick d2">Pertama Bertemu</div>
+          <p class="rv rv-up d3">Berawal dari pertemuan sederhana di perantauan — obrolan tentang kampung halaman dan rumah adat hari itu menjadi awal perjalanan kisah kami.</p></div></div>
         <div class="tl-item rv rv-right"><span class="tl-dot" aria-hidden="true"></span><div class="tl-card">
-          <img class="tl-thumb" src="assets/undangya/tongkonan-pusaka/galeri-1.webp" alt="Pasangan di pelaminan tongkonan" loading="lazy" decoding="async">
-          <div class="tl-year">2023</div><div class="tl-title">Lamaran &amp; Restu</div>
-          <p>Di hadapan keluarga tercinta, Fahrezzi menyampaikan niat sucinya. Dengan restu kedua orang tua, Meyzsa menerimanya dengan hati berbunga-bunga.</p></div></div>
+          <img class="tl-thumb rv rv-zoom d1" src="assets/undangya/tongkonan-pusaka/galeri-1.webp" alt="Pasangan di pelaminan tongkonan" loading="lazy" decoding="async">
+          <div class="tl-year rv rv-kick d2">2023</div><div class="tl-title rv rv-kick d2">Lamaran &amp; Restu</div>
+          <p class="rv rv-up d3">Di hadapan keluarga tercinta, Fahrezzi menyampaikan niat sucinya. Dengan restu kedua orang tua, Meyzsa menerimanya dengan hati berbunga-bunga.</p></div></div>
         <div class="tl-item rv rv-left"><span class="tl-dot" aria-hidden="true"></span><div class="tl-card">
-          <img class="tl-thumb" src="assets/undangya/tongkonan-pusaka/galeri-8.webp" alt="Dua keluarga di padang dan sawah Toraja" loading="lazy" decoding="async">
-          <div class="tl-year">2025</div><div class="tl-title">Menyatukan Dua Keluarga</div>
-          <p>Seperti tongkonan yang menaungi seluruh keluarga besar, dua keluarga kami saling mengenal dan menyatukan cerita serta doa, hingga hari bahagia terasa kian dekat.</p></div></div>
+          <img class="tl-thumb rv rv-zoom d1" src="assets/undangya/tongkonan-pusaka/galeri-8.webp" alt="Dua keluarga di padang dan sawah Toraja" loading="lazy" decoding="async">
+          <div class="tl-year rv rv-kick d2">2025</div><div class="tl-title rv rv-kick d2">Menyatukan Dua Keluarga</div>
+          <p class="rv rv-up d3">Seperti tongkonan yang menaungi seluruh keluarga besar, dua keluarga kami saling mengenal dan menyatukan cerita serta doa, hingga hari bahagia terasa kian dekat.</p></div></div>
         <div class="tl-item rv rv-right"><span class="tl-dot" aria-hidden="true"></span><div class="tl-card">
-          <img class="tl-thumb" src="assets/undangya/tongkonan-pusaka/hero.webp" alt="Pasangan di hari bahagia di depan tongkonan" loading="lazy" decoding="async">
-          <div class="tl-year">2027</div><div class="tl-title">Hari Bahagia</div>
-          <p>Sabtu, 12 Juni 2027 — bab terindah kisah kami dimulai. Kami mohon doa restu agar rumah tangga ini kokoh seperti tongkonan, diberkahi hingga selamanya.</p></div></div>
+          <img class="tl-thumb rv rv-zoom d1" src="assets/undangya/tongkonan-pusaka/hero.webp" alt="Pasangan di hari bahagia di depan tongkonan" loading="lazy" decoding="async">
+          <div class="tl-year rv rv-kick d2">2027</div><div class="tl-title rv rv-kick d2">Hari Bahagia</div>
+          <p class="rv rv-up d3">Sabtu, 12 Juni 2027 — bab terindah kisah kami dimulai. Kami mohon doa restu agar rumah tangga ini kokoh seperti tongkonan, diberkahi hingga selamanya.</p></div></div>
       </div>
-      <p class="demo-note rv rv-up">Linimasa &amp; teks kisah di atas adalah contoh untuk tampilan tema.</p>
+      <div class="rv rv-zoom d2"><img class="sec-orn " style="width:180px" src="assets/undangya/tongkonan-pusaka/tongk-alang.webp" alt="" loading="lazy" decoding="async"></div>
+      <p class="demo-note rv rv-up note-chip">Linimasa &amp; teks kisah di atas adalah contoh untuk tampilan tema.</p>
     </section>
 
     <!-- ================= COUNTDOWN + ACARA ================= -->
     <section id="acara">
-      <div class="sec-head rv rv-up head-glass">
-        <svg class="sec-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-tong"/></svg>
-        <div class="sec-kicker">HITUNG MUNDUR</div>
-        <h2 class="sec-title serif">Menuju Hari Bahagia</h2>
+      <div class="sec-head head-glass">
+        <svg class="sec-icon rv rv-rotr d1" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-tong"/></svg>
+        <div class="sec-kicker rv rv-kick d2">HITUNG MUNDUR</div>
+        <h2 class="sec-title serif rv rv-zoom d3">Menuju Hari Bahagia</h2>
       </div>
       <div class="countdown rv rv-zoom" id="countdown" data-target="2027-06-12T08:00:00+07:00" aria-label="Hitung mundur menuju akad nikah">
-        <div class="cd-box"><b id="cdD">0</b><span>Hari</span></div>
-        <div class="cd-box"><b id="cdH">0</b><span>Jam</span></div>
-        <div class="cd-box"><b id="cdM">0</b><span>Menit</span></div>
-        <div class="cd-box"><b id="cdS">0</b><span>Detik</span></div>
+        <div class="cd-box rv rv-num d1"><b id="cdD">0</b><span>Hari</span></div>
+        <div class="cd-box rv rv-num d2"><b id="cdH">0</b><span>Jam</span></div>
+        <div class="cd-box rv rv-num d3"><b id="cdM">0</b><span>Menit</span></div>
+        <div class="cd-box rv rv-num d4"><b id="cdS">0</b><span>Detik</span></div>
       </div>
+<div class="rv rv-zoom d2"><img class="sec-orn orn-spin" style="width:138px;margin-top:2px;margin-bottom:14px" src="assets/undangya/tongkonan-pusaka/tongk-barre-allo.webp" alt="" loading="lazy" decoding="async"></div>
       <p class="demo-note rv rv-up" style="margin:0 auto 26px;max-width:280px;background:rgba(24,10,4,.88);border:1px solid rgba(229,154,53,.45);border-radius:10px;padding:6px 10px">Sabtu, 12 Juni 2027 — Jakarta</p>
       <div class="card event rv rv-left">
-        <svg class="sec-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-rings"/></svg>
-        <h3>Akad Nikah</h3>
-        <div class="when">Sabtu, 12 Juni 2027 · 08.00 – 10.00 WIB</div>
+        <svg class="sec-icon rv rv-rot d1" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-rings"/></svg>
+        <h3 class="rv rv-kick d1">Akad Nikah</h3>
+        <div class="when rv rv-kick d2">Sabtu, 12 Juni 2027 · 08.00 – 10.00 WIB</div>
         <p><b>Masjid Agung Al-Azhar</b><br>Jakarta Selatan</p>
-        <a class="btn" href="https://maps.google.com/?q=Masjid+Agung+Al-Azhar+Jakarta+Selatan" target="_blank" rel="noopener">LIHAT LOKASI</a>
+        <a class="btn rv rv-drop d3" href="https://maps.google.com/?q=Masjid+Agung+Al-Azhar+Jakarta+Selatan" target="_blank" rel="noopener">LIHAT LOKASI</a>
         <a class="btn btn-alt" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Akad+Nikah+Meyzsa+%26+Fahrezzi&amp;dates=20270612T010000Z%2F20270612T030000Z&amp;details=Akad+Nikah+Meyzsa+Putri+Ananda+%26+Ahmad+Fahrezzi+Pratama&amp;location=Masjid+Agung+Al-Azhar%2C+Kebayoran+Baru%2C+Jakarta+Selatan" target="_blank" rel="noopener">SIMPAN KE KALENDER</a>
         <button class="btn btn-alt" type="button" data-ics data-file="akad-meyzsa-fahrezzi" data-title="Akad Nikah Meyzsa &amp; Fahrezzi" data-start="20270612T010000Z" data-end="20270612T030000Z" data-loc="Masjid Agung Al-Azhar, Kebayoran Baru, Jakarta Selatan" data-desc="Akad Nikah Meyzsa Putri Ananda &amp; Ahmad Fahrezzi Pratama">UNDUH .ICS</button>
       </div>
       <div class="card event rv rv-right">
-        <svg class="sec-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-sun"/></svg>
-        <h3>Resepsi</h3>
-        <div class="when">Sabtu, 12 Juni 2027 · 11.00 – 13.00 WIB</div>
+        <svg class="sec-icon rv rv-rotr d1" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-sun"/></svg>
+        <h3 class="rv rv-kick d1">Resepsi</h3>
+        <div class="when rv rv-kick d2">Sabtu, 12 Juni 2027 · 11.00 – 13.00 WIB</div>
         <p><b>The Ritz-Carlton Jakarta, Pacific Place</b><br>Jakarta Selatan</p>
-        <a class="btn" href="https://maps.google.com/?q=The+Ritz-Carlton+Jakarta+Pacific+Place" target="_blank" rel="noopener">LIHAT LOKASI</a>
+        <a class="btn rv rv-drop d3" href="https://maps.google.com/?q=The+Ritz-Carlton+Jakarta+Pacific+Place" target="_blank" rel="noopener">LIHAT LOKASI</a>
         <a class="btn btn-alt" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Resepsi+Meyzsa+%26+Fahrezzi&amp;dates=20270612T040000Z%2F20270612T060000Z&amp;details=Resepsi+Pernikahan+Meyzsa+Putri+Ananda+%26+Ahmad+Fahrezzi+Pratama&amp;location=The+Ritz-Carlton+Jakarta%2C+Pacific+Place%2C+Jakarta+Selatan" target="_blank" rel="noopener">SIMPAN KE KALENDER</a>
         <button class="btn btn-alt" type="button" data-ics data-file="resepsi-meyzsa-fahrezzi" data-title="Resepsi Meyzsa &amp; Fahrezzi" data-start="20270612T040000Z" data-end="20270612T060000Z" data-loc="The Ritz-Carlton Jakarta, Pacific Place, Jakarta Selatan" data-desc="Resepsi Pernikahan Meyzsa Putri Ananda &amp; Ahmad Fahrezzi Pratama">UNDUH .ICS</button>
       </div>
       <div class="card rv rv-zoom" style="margin-top:26px;text-align:center">
-        <h3 class="sub-h" style="margin-top:0">Dresscode Tamu</h3>
-        <p class="sub-sub">Berkenan hadir dengan nuansa warna berikut</p>
-        <div class="dc-chips"><span class="dc-chip"><span class="dc-dot" style="background:#8E2323"></span>Merah Darah</span><span class="dc-chip"><span class="dc-dot" style="background:#1D1712"></span>Hitam Arang</span><span class="dc-chip"><span class="dc-dot" style="background:#D98E32"></span>Emas Ukiran</span><span class="dc-chip"><span class="dc-dot" style="background:#EFE3C8"></span>Putih Tulang</span><span class="dc-chip"><span class="dc-dot" style="background:#C65A21"></span>Oranye Senja</span><span class="dc-chip"><span class="dc-dot" style="background:#5F7247"></span>Hijau Sawah</span></div>
-        <p style="font-size:12.5px;line-height:1.65;margin-top:13px">Panduan contoh: busana formal atau semi-formal dengan nuansa di atas akan menyatu indah dengan dekorasi ukiran kami. Terima kasih atas pengertiannya.</p>
+        <h3 class="sub-h rv rv-kick d1" style="margin-top:0">Dresscode Tamu</h3>
+        <p class="sub-sub rv rv-kick d2">Berkenan hadir dengan nuansa warna berikut</p>
+        <div class="dc-chips"><span class="dc-chip rv rv-chip d1"><span class="dc-dot" style="background:#8E2323"></span>Merah Darah</span><span class="dc-chip rv rv-chip d2"><span class="dc-dot" style="background:#1D1712"></span>Hitam Arang</span><span class="dc-chip rv rv-chip d3"><span class="dc-dot" style="background:#D98E32"></span>Emas Ukiran</span><span class="dc-chip rv rv-chip d4"><span class="dc-dot" style="background:#EFE3C8"></span>Putih Tulang</span><span class="dc-chip rv rv-chip d5"><span class="dc-dot" style="background:#C65A21"></span>Oranye Senja</span><span class="dc-chip rv rv-chip d6"><span class="dc-dot" style="background:#5F7247"></span>Hijau Sawah</span></div>
+        <p class="rv rv-up d3" style="font-size:12.5px;line-height:1.65;margin-top:13px">Panduan contoh: busana formal atau semi-formal dengan nuansa di atas akan menyatu indah dengan dekorasi ukiran kami. Terima kasih atas pengertiannya.</p>
       </div>
-      <h3 class="sub-h rv rv-up">Denah &amp; Info Lokasi</h3>
-      <p class="sub-sub rv rv-up">Alamat lengkap &amp; patokan menuju venue (contoh)</p>
+      <h3 class="sub-h rv rv-kick glass-bar">Denah &amp; Info Lokasi</h3>
+      <p class="sub-sub rv rv-kick d2 note-chip">Alamat lengkap &amp; patokan menuju venue (contoh)</p>
       <div class="card info-card rv rv-left">
-        <h4>Akad Nikah — Masjid Agung Al-Azhar</h4>
+        <h4 class="rv rv-kick d1">Akad Nikah — Masjid Agung Al-Azhar</h4>
         <p>Jl. Sisingamangaraja No. 1, Kebayoran Baru, Jakarta Selatan.</p>
         <p>Patokan: kompleks Al-Azhar di sisi jalan utama Sisingamangaraja, mudah dijangkau kendaraan pribadi maupun transportasi umum. Area parkir tersedia di sekitar kompleks; tamu disarankan tiba ±30 menit lebih awal.</p>
-        <div class="btn-row"><a class="btn" href="https://maps.google.com/?q=Masjid+Agung+Al-Azhar+Jakarta+Selatan" target="_blank" rel="noopener">BUKA PETA</a><a class="btn btn-alt" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Akad+Nikah+Meyzsa+%26+Fahrezzi&amp;dates=20270612T010000Z%2F20270612T030000Z&amp;details=Akad+Nikah+Meyzsa+Putri+Ananda+%26+Ahmad+Fahrezzi+Pratama&amp;location=Masjid+Agung+Al-Azhar%2C+Kebayoran+Baru%2C+Jakarta+Selatan" target="_blank" rel="noopener">SIMPAN KE KALENDER</a></div>
+        <div class="btn-row rv rv-drop d3"><a class="btn" href="https://maps.google.com/?q=Masjid+Agung+Al-Azhar+Jakarta+Selatan" target="_blank" rel="noopener">BUKA PETA</a><a class="btn btn-alt" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Akad+Nikah+Meyzsa+%26+Fahrezzi&amp;dates=20270612T010000Z%2F20270612T030000Z&amp;details=Akad+Nikah+Meyzsa+Putri+Ananda+%26+Ahmad+Fahrezzi+Pratama&amp;location=Masjid+Agung+Al-Azhar%2C+Kebayoran+Baru%2C+Jakarta+Selatan" target="_blank" rel="noopener">SIMPAN KE KALENDER</a></div>
       </div>
       <div class="card info-card rv rv-right">
-        <h4>Resepsi — The Ritz-Carlton Jakarta, Pacific Place</h4>
+        <h4 class="rv rv-kick d1">Resepsi — The Ritz-Carlton Jakarta, Pacific Place</h4>
         <p>Jl. Jend. Sudirman Kav. 52–53, SCBD, Senayan, Jakarta Selatan.</p>
         <p>Patokan: berada di kawasan SCBD, terhubung dengan Pacific Place Mall; masuk melalui lobi utama hotel. Area parkir tersedia di gedung mal; tamu disarankan tiba ±30 menit lebih awal.</p>
-        <div class="btn-row"><a class="btn" href="https://maps.google.com/?q=The+Ritz-Carlton+Jakarta+Pacific+Place" target="_blank" rel="noopener">BUKA PETA</a><a class="btn btn-alt" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Resepsi+Meyzsa+%26+Fahrezzi&amp;dates=20270612T040000Z%2F20270612T060000Z&amp;details=Resepsi+Pernikahan+Meyzsa+Putri+Ananda+%26+Ahmad+Fahrezzi+Pratama&amp;location=The+Ritz-Carlton+Jakarta%2C+Pacific+Place%2C+Jakarta+Selatan" target="_blank" rel="noopener">SIMPAN KE KALENDER</a></div>
+        <div class="btn-row rv rv-drop d3"><a class="btn" href="https://maps.google.com/?q=The+Ritz-Carlton+Jakarta+Pacific+Place" target="_blank" rel="noopener">BUKA PETA</a><a class="btn btn-alt" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Resepsi+Meyzsa+%26+Fahrezzi&amp;dates=20270612T040000Z%2F20270612T060000Z&amp;details=Resepsi+Pernikahan+Meyzsa+Putri+Ananda+%26+Ahmad+Fahrezzi+Pratama&amp;location=The+Ritz-Carlton+Jakarta%2C+Pacific+Place%2C+Jakarta+Selatan" target="_blank" rel="noopener">SIMPAN KE KALENDER</a></div>
       </div>
     </section>
 
     <!-- ================= GALERI REL GESER ================= -->
     <section id="galeri">
-      <div class="sec-head rv rv-up">
-        <svg class="sec-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-tong"/></svg>
-        <div class="sec-kicker">GALERI</div>
-        <h2 class="sec-title serif">Galeri Tongkonan</h2>
-        <p class="sec-sub">Delapan potret di tanah Toraja — ketuk untuk memperbesar</p>
+      <div class="sec-head head-glass">
+        <svg class="sec-icon rv rv-rot d1" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-tong"/></svg>
+        <div class="sec-kicker rv rv-kick d2">GALERI</div>
+        <h2 class="sec-title serif rv rv-up d3">Galeri Tongkonan</h2>
+        <p class="sec-sub rv rv-right d4">Delapan potret di tanah Toraja — ketuk untuk memperbesar</p>
       </div>
-      <div class="gal-hint">— GESER KANAN · KIRI —</div>
-      <div class="rail-label">POTRET PILIHAN · BERFRAME UKIRAN</div>
+      <div class="gal-hint rv rv-kick">— GESER KANAN · KIRI —</div>
+      <div class="rail-label rv rv-kick d1">POTRET PILIHAN · BERFRAME UKIRAN</div>
       <div class="gal-rail" id="railMain">
-        <div class="gal-slide rv rv-up"><span class="gal-num">01 / 08</span><figure><div class="frame-uk ph"><img class="gal-photo" src="assets/undangya/tongkonan-pusaka/galeri-1.webp" alt="Pasangan duduk di pelaminan di depan tongkonan berukiran merah-hitam-emas" loading="lazy"></div><figcaption class="gal-cap">Pelaminan Tongkonan</figcaption></figure></div>
-        <div class="gal-slide rv rv-up"><span class="gal-num">02 / 08</span><figure><div class="frame-uk ph"><img class="gal-photo" src="assets/undangya/tongkonan-pusaka/galeri-2.webp" alt="Pasangan bergandengan tangan di halaman tongkonan pada pagi berkabut" loading="lazy"></div><figcaption class="gal-cap">Halaman Tongkonan Pagi</figcaption></figure></div>
-        <div class="gal-slide rv rv-up"><span class="gal-num">05 / 08</span><figure><div class="frame-uk ph"><img class="gal-photo" src="assets/undangya/tongkonan-pusaka/galeri-5.webp" alt="Pasangan melewati gerbang ukiran kayu bertanduk kerbau" loading="lazy"></div><figcaption class="gal-cap">Gerbang Ukiran</figcaption></figure></div>
-        <div class="gal-slide rv rv-up"><span class="gal-num">07 / 08</span><figure><div class="frame-uk ph"><img class="gal-photo" src="assets/undangya/tongkonan-pusaka/galeri-7.webp" alt="Pasangan di depan tongkonan pada malam hari diterangi lentera gantung" loading="lazy"></div><figcaption class="gal-cap">Malam Lentera</figcaption></figure></div>
+        <div class="gal-slide rv rv-zoom d1"><span class="gal-num">01 / 08</span><figure><div class="frame-uk ph"><img class="gal-photo" src="assets/undangya/tongkonan-pusaka/galeri-1.webp" alt="Pasangan duduk di pelaminan di depan tongkonan berukiran merah-hitam-emas" loading="lazy"></div><figcaption class="gal-cap rv rv-kick d3">Pelaminan Tongkonan</figcaption></figure></div>
+        <div class="gal-slide rv rv-left d2"><span class="gal-num">02 / 08</span><figure><div class="frame-uk ph"><img class="gal-photo" src="assets/undangya/tongkonan-pusaka/galeri-2.webp" alt="Pasangan bergandengan tangan di halaman tongkonan pada pagi berkabut" loading="lazy"></div><figcaption class="gal-cap rv rv-kick d3">Halaman Tongkonan Pagi</figcaption></figure></div>
+        <div class="gal-slide rv rv-rot d3"><span class="gal-num">05 / 08</span><figure><div class="frame-uk ph"><img class="gal-photo" src="assets/undangya/tongkonan-pusaka/galeri-5.webp" alt="Pasangan melewati gerbang ukiran kayu bertanduk kerbau" loading="lazy"></div><figcaption class="gal-cap rv rv-kick d3">Gerbang Ukiran</figcaption></figure></div>
+        <div class="gal-slide rv rv-right d4"><span class="gal-num">07 / 08</span><figure><div class="frame-uk ph"><img class="gal-photo" src="assets/undangya/tongkonan-pusaka/galeri-7.webp" alt="Pasangan di depan tongkonan pada malam hari diterangi lentera gantung" loading="lazy"></div><figcaption class="gal-cap rv rv-kick d3">Malam Lentera</figcaption></figure></div>
       </div>
-      <div class="rail-meta"><span class="rail-frac" id="fracMain">1 / 4</span><span class="rail-dots" id="dotsMain"></span></div>
-      <div class="rail-label">POTRET LEPAS · TANPA FRAME</div>
+      <div class="rail-meta rv rv-kick d2"><span class="rail-frac" id="fracMain">1 / 4</span><span class="rail-dots" id="dotsMain"></span></div>
+      <div class="rail-label rv rv-kick d1">POTRET LEPAS · TANPA FRAME</div>
       <div class="gal-rail" id="railSub">
-        <div class="gal-slide small rv rv-up"><span class="gal-num">03 / 08</span><figure><div class="plain ph"><img class="gal-photo" src="assets/undangya/tongkonan-pusaka/galeri-3.webp" alt="Pasangan berjalan di antara alang dan sawah terasering" loading="lazy"></div><figcaption class="gal-cap">Alang &amp; Sawah</figcaption></figure></div>
-        <div class="gal-slide small rv rv-up"><span class="gal-num">04 / 08</span><figure><div class="plain ph"><img class="gal-photo" src="assets/undangya/tongkonan-pusaka/galeri-4.webp" alt="Pasangan di tepi tebing memandang lembah Toraja saat senja" loading="lazy"></div><figcaption class="gal-cap">Tebing &amp; Lembah Senja</figcaption></figure></div>
-        <div class="gal-slide small rv rv-up"><span class="gal-num">06 / 08</span><figure><div class="plain ph"><img class="gal-photo" src="assets/undangya/tongkonan-pusaka/galeri-6.webp" alt="Pasangan di ruang dalam tongkonan yang penuh ukiran kayu" loading="lazy"></div><figcaption class="gal-cap">Ruang Ukiran Kayu</figcaption></figure></div>
-        <div class="gal-slide small rv rv-up"><span class="gal-num">08 / 08</span><figure><div class="plain ph"><img class="gal-photo" src="assets/undangya/tongkonan-pusaka/galeri-8.webp" alt="Pasangan di padang hijau di samping kerbau dengan sawah dan tongkonan di latar" loading="lazy"></div><figcaption class="gal-cap">Kerbau &amp; Padang</figcaption></figure></div>
+        <div class="gal-slide small rv rv-left d1"><span class="gal-num">03 / 08</span><figure><div class="plain ph"><img class="gal-photo" src="assets/undangya/tongkonan-pusaka/galeri-3.webp" alt="Pasangan berjalan di antara alang dan sawah terasering" loading="lazy"></div><figcaption class="gal-cap rv rv-kick d3">Alang &amp; Sawah</figcaption></figure></div>
+        <div class="gal-slide small rv rv-rot d2"><span class="gal-num">04 / 08</span><figure><div class="plain ph"><img class="gal-photo" src="assets/undangya/tongkonan-pusaka/galeri-4.webp" alt="Pasangan di tepi tebing memandang lembah Toraja saat senja" loading="lazy"></div><figcaption class="gal-cap rv rv-kick d3">Tebing &amp; Lembah Senja</figcaption></figure></div>
+        <div class="gal-slide small rv rv-right d3"><span class="gal-num">06 / 08</span><figure><div class="plain ph"><img class="gal-photo" src="assets/undangya/tongkonan-pusaka/galeri-6.webp" alt="Pasangan di ruang dalam tongkonan yang penuh ukiran kayu" loading="lazy"></div><figcaption class="gal-cap rv rv-kick d3">Ruang Ukiran Kayu</figcaption></figure></div>
+        <div class="gal-slide small rv rv-zoom d4"><span class="gal-num">08 / 08</span><figure><div class="plain ph"><img class="gal-photo" src="assets/undangya/tongkonan-pusaka/galeri-8.webp" alt="Pasangan di padang hijau di samping kerbau dengan sawah dan tongkonan di latar" loading="lazy"></div><figcaption class="gal-cap rv rv-kick d3">Kerbau &amp; Padang</figcaption></figure></div>
       </div>
-      <div class="rail-meta"><span class="rail-frac" id="fracSub">1 / 4</span><span class="rail-dots" id="dotsSub"></span></div>
+      <div class="rail-meta rv rv-kick d2"><span class="rail-frac" id="fracSub">1 / 4</span><span class="rail-dots" id="dotsSub"></span></div>
+      <div class="rv rv-zoom d2"><img class="sec-orn " style="width:min(330px,88%)" src="assets/undangya/tongkonan-pusaka/tongk-passura-garis.webp" alt="" loading="lazy" decoding="async"></div>
     </section>
 
     <!-- ================= VIDEO TEASER ================= -->
     <section id="cuplikan">
-      <div class="sec-head rv rv-up">
-        <svg class="sec-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-sun"/></svg>
-        <div class="sec-kicker">CUPLIKAN</div>
-        <h2 class="sec-title serif">Video Teaser</h2>
-        <p class="sec-sub">Sepotong kisah kami dalam bingkai bergerak</p>
+      <div class="sec-head head-glass">
+        <svg class="sec-icon rv rv-rotr d1" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-sun"/></svg>
+        <div class="sec-kicker rv rv-kick d2">CUPLIKAN</div>
+        <h2 class="sec-title serif rv rv-zoom d3">Video Teaser</h2>
+        <p class="sec-sub rv rv-left d4">Sepotong kisah kami dalam bingkai bergerak</p>
       </div>
       <div class="rv rv-zoom" style="border:3px solid var(--gold);border-radius:14px;padding:6px;background:#1c0a04;box-shadow:0 16px 36px rgba(0,0,0,.5)">
         <div class="vid-wrap" id="vidWrap">
@@ -441,144 +489,151 @@ body.opened #btnMusic{display:flex}
           </div>
         </div>
       </div>
-      <p class="demo-note rv rv-up">Video teaser — contoh (dirender dari foto pasangan tema ini dengan lagu pengiring; pada undangan asli dapat diganti video prewedding mempelai).</p>
+      <div class="rv rv-zoom d2"><img class="sec-orn " style="width:min(300px,84%)" src="assets/undangya/tongkonan-pusaka/tongk-kerbau-tedong.webp" alt="" loading="lazy" decoding="async"></div>
+      <p class="demo-note rv rv-up note-chip">Video teaser — contoh (dirender dari foto pasangan tema ini dengan lagu pengiring; pada undangan asli dapat diganti video prewedding mempelai).</p>
     </section>
 
     <!-- ================= LIVE STREAMING + TAGAR + GALERI TAMU ================= -->
     <section id="live">
-      <div class="sec-head rv rv-up">
-        <svg class="sec-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-horn"/></svg>
-        <div class="sec-kicker">LIVE STREAMING</div>
-        <h2 class="sec-title serif">Siaran Langsung</h2>
-        <p class="sec-sub">Untuk keluarga &amp; sahabat yang berhalangan hadir langsung</p>
+      <div class="sec-head head-glass">
+        <svg class="sec-icon rv rv-rot d1" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-horn"/></svg>
+        <div class="sec-kicker rv rv-kick d2">LIVE STREAMING</div>
+        <h2 class="sec-title serif rv rv-up d3">Siaran Langsung</h2>
+        <p class="sec-sub rv rv-right d4">Untuk keluarga &amp; sahabat yang berhalangan hadir langsung</p>
       </div>
       <div class="card rv rv-zoom" style="text-align:center">
-        <span class="live-badge"><span class="live-dot" aria-hidden="true"></span>LIVE · CONTOH</span>
-        <h3 class="sub-h">Resepsi Pernikahan</h3>
-        <p style="font-size:13.5px;line-height:1.7"><b>Sabtu, 12 Juni 2027 · mulai 11.00 WIB</b><br>menyesuaikan jam resepsi — The Ritz-Carlton Jakarta, Pacific Place</p>
-        <a class="btn" href="#" onclick="return false" aria-disabled="true">▶ TONTON LIVE</a>
-        <p class="demo-note">Tautan contoh (demo) — pada undangan asli, tombol ini mengarah ke siaran langsung mempelai dan aktif menjelang acara.</p>
-        <svg class="divider" viewBox="0 0 130 16" aria-hidden="true" style="margin:20px auto 14px"><path d="M2 8 H46 M84 8 H128" stroke="#e59a35" stroke-width="1.4"/><path d="M65 1 L72 8 L65 15 L58 8Z" fill="none" stroke="#f4c168" stroke-width="1.4"/><circle cx="65" cy="8" r="2.2" fill="#b03327"/></svg>
-        <div class="tag-big">#MeyzsaFahrezzi</div>
-        <p style="font-size:12.5px;line-height:1.65;margin-top:4px">Abadikan momen bahagia Anda dan tandai dengan tagar resmi kami.</p>
-        <button class="salin-btn" type="button" data-copytext="#MeyzsaFahrezzi">SALIN TAGAR</button>
+        <span class="live-badge rv rv-chip d1"><span class="live-dot" aria-hidden="true"></span>LIVE · CONTOH</span>
+        <h3 class="sub-h rv rv-kick d1">Resepsi Pernikahan</h3>
+        <p class="rv rv-up d2" style="font-size:13.5px;line-height:1.7"><b>Sabtu, 12 Juni 2027 · mulai 11.00 WIB</b><br>menyesuaikan jam resepsi — The Ritz-Carlton Jakarta, Pacific Place</p>
+        <a class="btn rv rv-drop d2" href="#" onclick="return false" aria-disabled="true">▶ TONTON LIVE</a>
+        <p class="demo-note rv rv-kick d3">Tautan contoh (demo) — pada undangan asli, tombol ini mengarah ke siaran langsung mempelai dan aktif menjelang acara.</p>
+        <svg class="divider rv rv-zoom d3" viewBox="0 0 130 16" aria-hidden="true" style="margin:20px auto 14px"><path d="M2 8 H46 M84 8 H128" stroke="#e59a35" stroke-width="1.4"/><path d="M65 1 L72 8 L65 15 L58 8Z" fill="none" stroke="#f4c168" stroke-width="1.4"/><circle cx="65" cy="8" r="2.2" fill="#b03327"/></svg>
+        <div class="tag-big rv rv-zoom d4">#MeyzsaFahrezzi</div>
+        <p class="rv rv-up d4" style="font-size:12.5px;line-height:1.65;margin-top:4px">Abadikan momen bahagia Anda dan tandai dengan tagar resmi kami.</p>
+        <button class="salin-btn rv rv-chip d5" type="button" data-copytext="#MeyzsaFahrezzi">SALIN TAGAR</button>
       </div>
       <div class="card rv rv-zoom" style="text-align:center;margin-top:16px">
-        <div class="sec-kicker">GALERI TAMU</div>
-        <h3 class="sub-h">Galeri Tamu</h3>
-        <p style="font-size:13px;line-height:1.7">Bagikan momen bahagia Anda selama acara — unggah foto Anda di sini dan tandai juga dengan tagar <b>#MeyzsaFahrezzi</b>.</p>
-        <label class="salin-btn gt-up" for="gtInput">＋ UNGGAH FOTO</label>
+        <div class="sec-kicker rv rv-kick d1">GALERI TAMU</div>
+        <h3 class="sub-h rv rv-kick d1">Galeri Tamu</h3>
+        <p class="rv rv-up d2" style="font-size:13px;line-height:1.7">Bagikan momen bahagia Anda selama acara — unggah foto Anda di sini dan tandai juga dengan tagar <b>#MeyzsaFahrezzi</b>.</p>
+        <label class="salin-btn gt-up rv rv-chip d2" for="gtInput">＋ UNGGAH FOTO</label>
         <input id="gtInput" type="file" accept="image/*" multiple hidden>
         <div class="gt-grid" id="gtGrid" aria-live="polite"></div>
-        <p class="gt-empty" id="gtEmpty">Jadilah yang pertama membagikan momen — ketuk tombol unggah.</p>
-        <p class="demo-note">Contoh — foto tersimpan di perangkat ini saja (penyimpanan lokal peramban), tidak diunggah ke server.</p>
+        <p class="gt-empty rv rv-kick d3" id="gtEmpty">Jadilah yang pertama membagikan momen — ketuk tombol unggah.</p>
+        <p class="demo-note rv rv-kick d3">Contoh — foto tersimpan di perangkat ini saja (penyimpanan lokal peramban), tidak diunggah ke server.</p>
       </div>
+      <div class="rv rv-zoom d2"><img class="sec-orn orn-floaty" style="width:min(320px,86%)" src="assets/undangya/tongkonan-pusaka/tongk-gelombang.webp" alt="" loading="lazy" decoding="async"></div>
     </section>
 
     <!-- ================= RSVP ================= -->
     <section id="rsvp">
-      <div class="sec-head rv rv-up">
-        <svg class="sec-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-heart"/></svg>
-        <div class="sec-kicker">RSVP &amp; UCAPAN</div>
-        <h2 class="sec-title serif">Dinding Ucapan</h2>
-        <p class="sec-sub">Konfirmasi kehadiran &amp; tuliskan doa terbaik Anda</p>
+      <div class="sec-head head-glass">
+        <svg class="sec-icon rv rv-rotr d1" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-heart"/></svg>
+        <div class="sec-kicker rv rv-kick d2">RSVP &amp; UCAPAN</div>
+        <h2 class="sec-title serif rv rv-zoom d3">Dinding Ucapan</h2>
+        <p class="sec-sub rv rv-left d4">Konfirmasi kehadiran &amp; tuliskan doa terbaik Anda</p>
       </div>
       <div class="card rv rv-zoom">
+        <img class="orn-hang" src="assets/undangya/tongkonan-pusaka/tongk-kandaure.webp" alt="" loading="lazy" decoding="async">
         <form id="rsvpForm" novalidate>
-          <div class="field"><label for="rsvpName">Nama Tamu</label><input id="rsvpName" type="text" placeholder="Nama Anda" autocomplete="name"></div>
-          <div class="field"><label for="rsvpAttend">Konfirmasi Kehadiran</label>
+          <div class="field rv rv-left d1"><label for="rsvpName">Nama Tamu</label><input id="rsvpName" type="text" placeholder="Nama Anda" autocomplete="name"></div>
+          <div class="field rv rv-right d2"><label for="rsvpAttend">Konfirmasi Kehadiran</label>
             <select id="rsvpAttend"><option value="Hadir">Hadir, insya Allah</option><option value="Berhalangan">Berhalangan hadir</option><option value="Masih ragu">Masih ragu</option></select></div>
-          <div class="field"><label for="rsvpMsg">Doa &amp; Ucapan</label><textarea id="rsvpMsg" placeholder="Tuliskan doa untuk kedua mempelai..."></textarea></div>
-          <button class="btn" type="submit" style="width:100%">KIRIM UCAPAN</button>
+          <div class="field rv rv-left d3"><label for="rsvpMsg">Doa &amp; Ucapan</label><textarea id="rsvpMsg" placeholder="Tuliskan doa untuk kedua mempelai..."></textarea></div>
+          <button class="btn rv rv-drop d3" type="submit" style="width:100%">KIRIM UCAPAN</button>
         </form>
-        <p class="demo-note">Fitur demo pada contoh undangan ini — ucapan tersimpan hanya di perangkat Anda dan tidak terkirim ke server.</p>
+        <p class="demo-note rv rv-kick d4">Fitur demo pada contoh undangan ini — ucapan tersimpan hanya di perangkat Anda dan tidak terkirim ke server.</p>
         <div class="gb-list" id="guestbookList" aria-live="polite"></div>
       </div>
     </section>
 
     <!-- ================= BUKU TAMU & QR ================= -->
     <section id="bukutamu">
-      <div class="sec-head rv rv-up">
-        <svg class="sec-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-tong"/></svg>
-        <div class="sec-kicker">BUKU TAMU &amp; CHECK-IN</div>
-        <h2 class="sec-title serif">Presensi Digital</h2>
-        <p class="sec-sub">Pindai kode QR ini atau isi buku tamu saat tiba di lokasi</p>
+      <div class="sec-head head-glass">
+        <svg class="sec-icon rv rv-rot d1" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-tong"/></svg>
+        <div class="sec-kicker rv rv-kick d2">BUKU TAMU &amp; CHECK-IN</div>
+        <h2 class="sec-title serif rv rv-up d3">Presensi Digital</h2>
+        <p class="sec-sub rv rv-right d4">Pindai kode QR ini atau isi buku tamu saat tiba di lokasi</p>
       </div>
       <div class="card rv rv-zoom" style="text-align:center">
-        <div class="qr-box"><img src="assets/undangya/tongkonan-pusaka/qr-undangan.webp" alt="Kode QR menuju halaman undangan ini" loading="lazy" decoding="async"></div>
-        <p style="font-size:12.5px;line-height:1.65">Kode QR membuka halaman undangan yang sedang Anda baca — tunjukkan kepada penerima tamu saat check-in.</p>
+        <div class="qr-box rv rv-zoom d1"><img src="assets/undangya/tongkonan-pusaka/qr-undangan.webp" alt="Kode QR menuju halaman undangan ini" loading="lazy" decoding="async"></div>
+        <p class="rv rv-up d2" style="font-size:12.5px;line-height:1.65">Kode QR membuka halaman undangan yang sedang Anda baca — tunjukkan kepada penerima tamu saat check-in.</p>
         <form id="ciForm" novalidate style="text-align:left;margin-top:18px">
-          <div class="field"><label for="ciName">Nama Tamu</label><input id="ciName" type="text" placeholder="Nama Anda" autocomplete="name"></div>
-          <div class="field"><label for="ciSesi">Sesi Kehadiran</label>
+          <div class="field rv rv-left d1"><label for="ciName">Nama Tamu</label><input id="ciName" type="text" placeholder="Nama Anda" autocomplete="name"></div>
+          <div class="field rv rv-right d2"><label for="ciSesi">Sesi Kehadiran</label>
             <select id="ciSesi"><option value="Akad Nikah">Akad Nikah</option><option value="Resepsi">Resepsi</option></select></div>
-          <button class="btn" type="submit" style="width:100%;border:none">CHECK-IN (DEMO)</button>
+          <button class="btn rv rv-drop d3" type="submit" style="width:100%;border:none">CHECK-IN (DEMO)</button>
         </form>
-        <p class="demo-note">Fitur demo pada contoh undangan ini — data check-in tersimpan hanya di perangkat Anda.</p>
+        <p class="demo-note rv rv-kick d3">Fitur demo pada contoh undangan ini — data check-in tersimpan hanya di perangkat Anda.</p>
         <div class="gb-list" id="ciList" aria-live="polite"></div>
       </div>
+      <div class="rv rv-zoom d2"><img class="sec-orn " style="width:190px" src="assets/undangya/tongkonan-pusaka/tongk-gerbang-tanduk.webp" alt="" loading="lazy" decoding="async"></div>
     </section>
 
     <!-- ================= AMPLOP + KADO ================= -->
     <section id="amplop">
-      <div class="sec-head rv rv-up head-glass">
-        <svg class="sec-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-gift"/></svg>
-        <div class="sec-kicker">AMPLOP DIGITAL</div>
-        <h2 class="sec-title serif">Tanda Kasih</h2>
-        <p class="sec-sub">Doa restu Anda adalah hadiah terindah. Bagi yang berkenan memberi tanda kasih:</p>
+      <div class="sec-head head-glass">
+        <svg class="sec-icon rv rv-rotr d1" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-gift"/></svg>
+        <div class="sec-kicker rv rv-kick d2">AMPLOP DIGITAL</div>
+        <h2 class="sec-title serif rv rv-zoom d3">Tanda Kasih</h2>
+        <p class="sec-sub rv rv-left d4">Doa restu Anda adalah hadiah terindah. Bagi yang berkenan memberi tanda kasih:</p>
       </div>
       <div class="card acc-card rv rv-left">
-        <div class="bank">BCA</div>
-        <div class="acc-num" id="accBca">1234567890</div>
-        <div class="acc-name">a.n. Meyzsa Putri Ananda</div>
-        <button class="copy-btn" type="button" data-copy="accBca">SALIN NOMOR</button>
+        <div class="bank rv rv-kick d1">BCA</div>
+        <div class="acc-num rv rv-num d2" id="accBca">1234567890</div>
+        <div class="acc-name rv rv-kick d2">a.n. Meyzsa Putri Ananda</div>
+        <button class="copy-btn rv rv-chip d3" type="button" data-copy="accBca">SALIN NOMOR</button>
       </div>
       <div class="card acc-card rv rv-right">
-        <div class="bank">DANA</div>
-        <div class="acc-num" id="accDana">0812-3456-7890</div>
-        <div class="acc-name">a.n. Meyzsa Putri Ananda</div>
-        <button class="copy-btn" type="button" data-copy="accDana">SALIN NOMOR</button>
+        <div class="bank rv rv-kick d1">DANA</div>
+        <div class="acc-num rv rv-num d2" id="accDana">0812-3456-7890</div>
+        <div class="acc-name rv rv-kick d2">a.n. Meyzsa Putri Ananda</div>
+        <button class="copy-btn rv rv-chip d3" type="button" data-copy="accDana">SALIN NOMOR</button>
       </div>
-      <p class="demo-note rv rv-up">Nomor di atas adalah contoh untuk keperluan demo tampilan undangan.</p>
+      <p class="demo-note rv rv-up note-chip">Nomor di atas adalah contoh untuk keperluan demo tampilan undangan.</p>
       <div class="card acc-card rv rv-zoom" style="margin-top:20px">
-        <div class="bank" style="font-size:16px;letter-spacing:.1em">KIRIM KADO FISIK</div>
-        <p style="font-size:13.5px;line-height:1.75;margin-top:8px">Kediaman Mempelai Wanita<br>Jl. Melati Indah No. 12, Kebayoran Baru,<br>Jakarta Selatan 12120 <span style="opacity:.65">(alamat contoh)</span></p>
-        <button class="salin-btn" type="button" data-copytext="Kediaman Mempelai Wanita — Jl. Melati Indah No. 12, Kebayoran Baru, Jakarta Selatan 12120 (alamat contoh)">SALIN ALAMAT</button>
+        <div class="bank rv rv-kick d1" style="font-size:16px;letter-spacing:.1em">KIRIM KADO FISIK</div>
+        <p class="rv rv-up d2" style="font-size:13.5px;line-height:1.75;margin-top:8px">Kediaman Mempelai Wanita<br>Jl. Melati Indah No. 12, Kebayoran Baru,<br>Jakarta Selatan 12120 <span style="opacity:.65">(alamat contoh)</span></p>
+        <button class="salin-btn rv rv-chip d3" type="button" data-copytext="Kediaman Mempelai Wanita — Jl. Melati Indah No. 12, Kebayoran Baru, Jakarta Selatan 12120 (alamat contoh)">SALIN ALAMAT</button>
       </div>
+      <div class="rv rv-zoom d2"><img class="sec-orn " style="width:min(330px,88%)" src="assets/undangya/tongkonan-pusaka/tongk-sarita.webp" alt="" loading="lazy" decoding="async"></div>
     </section>
 
     <!-- ================= TURUT MENGUNDANG ================= -->
     <section id="turut">
-      <div class="sec-head rv rv-up">
-        <svg class="sec-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-horn"/></svg>
-        <div class="sec-kicker">TURUT MENGUNDANG</div>
-        <h2 class="sec-title serif">Turut Mengundang</h2>
-        <p class="sec-sub">Segenap keluarga besar kedua mempelai</p>
+      <div class="sec-head head-glass">
+        <svg class="sec-icon rv rv-rot d1" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-horn"/></svg>
+        <div class="sec-kicker rv rv-kick d2">TURUT MENGUNDANG</div>
+        <h2 class="sec-title serif rv rv-up d3">Turut Mengundang</h2>
+        <p class="sec-sub rv rv-left d4">Segenap keluarga besar kedua mempelai</p>
       </div>
       <div class="turut-grid">
         <div class="card turut-card rv rv-left">
-          <h4>Keluarga Mempelai Wanita</h4>
-          <p>Keluarga Besar Ridwan — Jakarta<br>Keluarga Besar Aminah — Bogor<br>Beserta segenap kerabat &amp; handai tolan</p>
+          <h4 class="rv rv-kick d1">Keluarga Mempelai Wanita</h4>
+          <p class="rv rv-up d2">Keluarga Besar Ridwan — Jakarta<br>Keluarga Besar Aminah — Bogor<br>Beserta segenap kerabat &amp; handai tolan</p>
         </div>
         <div class="card turut-card rv rv-right">
-          <h4>Keluarga Mempelai Pria</h4>
-          <p>Keluarga Besar Sutrisno — Jakarta<br>Keluarga Besar Dewi — Tangerang<br>Beserta segenap kerabat &amp; handai tolan</p>
+          <h4 class="rv rv-kick d1">Keluarga Mempelai Pria</h4>
+          <p class="rv rv-up d2">Keluarga Besar Sutrisno — Jakarta<br>Keluarga Besar Dewi — Tangerang<br>Beserta segenap kerabat &amp; handai tolan</p>
         </div>
       </div>
-      <p class="demo-note rv rv-up">Susunan keluarga di atas adalah contoh untuk tampilan tema.</p>
+      <p class="demo-note rv rv-up note-chip">Susunan keluarga di atas adalah contoh untuk tampilan tema.</p>
+      <div class="rv rv-zoom d2"><img class="sec-orn " style="width:min(280px,80%)" src="assets/undangya/tongkonan-pusaka/tongk-passapu.webp" alt="" loading="lazy" decoding="async"></div>
     </section>
 
     <!-- ================= PENUTUP ================= -->
     <section id="penutup" style="text-align:center">
       <div class="sec-petals" aria-hidden="true"></div>
       <div class="bg-tint panel-glass rv rv-zoom" style="padding:30px 22px 26px;position:relative;z-index:2">
-        <svg class="sec-icon" viewBox="0 0 64 64" aria-hidden="true" style="width:60px;height:60px"><use href="#ic-sun"/></svg>
-        <p style="font-size:14.5px;line-height:1.8;color:var(--body);max-width:320px;margin:6px auto 0">Merupakan suatu kehormatan dan kebahagiaan bagi kami beserta keluarga apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu kepada kedua mempelai.</p>
-        <p style="margin-top:16px;font-size:12px;letter-spacing:.3em;color:var(--gold-l);font-weight:700">KAMI YANG BERBAHAGIA</p>
-        <div class="penutup-names script" style="margin-top:6px">Meyzsa &amp; Fahrezzi</div>
-        <p style="margin-top:12px;font-family:Georgia,serif;font-style:italic;font-size:16px;color:var(--mut)">Kurre sumange’ — terima kasih, dan sampai jumpa di hari bahagia.</p>
+        <svg class="sec-icon rv rv-rot d1" viewBox="0 0 64 64" aria-hidden="true" style="width:60px;height:60px"><use href="#ic-sun"/></svg>
+        <p class="rv rv-up d1" style="font-size:14.5px;line-height:1.8;color:var(--body);max-width:320px;margin:6px auto 0">Merupakan suatu kehormatan dan kebahagiaan bagi kami beserta keluarga apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu kepada kedua mempelai.</p>
+        <p class="rv rv-kick d2" style="margin-top:16px;font-size:12px;letter-spacing:.3em;color:var(--gold-l);font-weight:700">KAMI YANG BERBAHAGIA</p>
+        <div class="penutup-names script rv rv-zoom d2" style="margin-top:6px">Meyzsa &amp; Fahrezzi</div>
+        <p class="rv rv-kick d3" style="margin-top:12px;font-family:Georgia,serif;font-style:italic;font-size:16px;color:var(--mut)">Kurre sumange’ — terima kasih, dan sampai jumpa di hari bahagia.</p>
+        <img class="sec-orn" style="width:170px" src="assets/undangya/tongkonan-pusaka/tongk-tongkonan-mini.webp" alt="" loading="lazy" decoding="async">
       </div>
     </section>
-    <p class="foot-note">Undangan digital contoh “Tongkonan Pusaka” oleh UndangYa! — seluruh nama, tanggal, dan nomor adalah data contoh.<br>Musik latar: “Petals on the Stone Floor”.</p>
+    <p class="foot-note rv rv-up">Undangan digital contoh “Tongkonan Pusaka” oleh UndangYa! — seluruh nama, tanggal, dan nomor adalah data contoh.<br>Musik latar: “Petals on the Stone Floor”.</p>
   </main>
 </div>
 
