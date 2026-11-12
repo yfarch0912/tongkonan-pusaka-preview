@@ -6,10 +6,16 @@
 <title>Tongkonan Pusaka — Meyzsa &amp; Fahrezzi | Sabtu 12 Juni 2027</title>
 <meta name="description" content="Undangan pernikahan digital adat Toraja: Tongkonan Pusaka — Meyzsa & Fahrezzi, Sabtu 12 Juni 2027, Jakarta.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23150d08'/%3E%3Cpath d='M4 13 Q16 4 28 13 L25 15 Q16 9 7 15 Z M9 15 h14 v9 h-4 v-5 h-6 v5 H9 Z' fill='%23e59a35'/%3E%3C/svg%3E">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/undangya/tongkonan-pusaka/font-script.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/undangya/tongkonan-pusaka/font-hero-display.woff2">
 <style>
-/* Font judul Great Vibes — SELF-HOSTED (woff2 lokal), TANPA font/CDN eksternal sama sekali */
+/* Font — SELF-HOSTED (woff2 lokal), TANPA font/CDN eksternal sama sekali.
+   Hero UNIK tema ini (Program Detail 2026-11-12): display 'Tongkonan Display' = Grenze Gotisch 700
+   (blackletter tegas berukiran, SIL OFL 1.1) untuk nama pengantin; kicker 'Tongkonan Kicker' =
+   Alegreya Sans SC 700 (small-caps klasik, SIL OFL 1.1) untuk "The Wedding Of".
+   Great Vibes lama (font-script.woff2) TIDAK lagi dipakai untuk nama — dipertahankan file-nya saja. */
 @font-face{font-family:'Great Vibes';src:url('assets/undangya/tongkonan-pusaka/font-script.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Tongkonan Display';src:url('assets/undangya/tongkonan-pusaka/font-hero-display.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Tongkonan Kicker';src:url('assets/undangya/tongkonan-pusaka/font-hero-kicker.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
 :root{
   --red:#8e2323; --red2:#b03327; --blood:#5f130d;
   --black:#150d08; --coal:#241209;
@@ -48,17 +54,17 @@ main{position:relative;z-index:2}
 /* KLASIFIKASI ANCHOR — murni CSS keyframes transform rotate (thread kompositor, NOL JS per-frame):
    TEGAK: origin pangkal bawah (50% 100%), akar TIDAK bergeser (tanpa translate pada ayunan).
    GANTUNG: origin titik gantung atas (50% 0). MELAYANG: kelopak & debu emas bebas. */
-.tegak{transform-origin:50% 100%;animation:swayT var(--sd,8.6s) ease-in-out var(--sdl,0s) infinite alternate}
+.tegak{transform-origin:50% 100%;animation:swayT var(--sd,4.4s) cubic-bezier(.37,.02,.63,.98) var(--sdl,0s) infinite alternate}
 @keyframes swayT{0%{transform:rotate(-2.3deg)}28%{transform:rotate(1.2deg)}52%{transform:rotate(3.1deg)}76%{transform:rotate(.4deg)}100%{transform:rotate(-1.6deg)}}
-.gantung{transform-origin:50% 0;animation:swayG var(--sd,9.2s) ease-in-out var(--sdl,0s) infinite alternate}
+.gantung{transform-origin:50% 0;animation:swayG var(--sd,4.9s) cubic-bezier(.37,.02,.63,.98) var(--sdl,0s) infinite alternate}
 @keyframes swayG{0%{transform:rotate(2.4deg)}30%{transform:rotate(-1.1deg)}55%{transform:rotate(-3.2deg)}80%{transform:rotate(-.3deg)}100%{transform:rotate(1.7deg)}}
-.flw-in{animation-name:flwIn,swayT;animation-duration:1.2s,var(--sd,8.6s);animation-timing-function:cubic-bezier(.22,.8,.3,1),ease-in-out;animation-delay:var(--ed,2.4s),var(--sdl,0s);animation-fill-mode:both,none;animation-iteration-count:1,infinite;animation-direction:normal,alternate}
+.flw-in{animation-name:flwIn,swayT;animation-duration:1.2s,var(--sd,4.4s);animation-timing-function:cubic-bezier(.22,.8,.3,1),cubic-bezier(.37,.02,.63,.98);animation-delay:var(--ed,2.4s),var(--sdl,0s);animation-fill-mode:both,none;animation-iteration-count:1,infinite;animation-direction:normal,alternate}
 @keyframes flwIn{from{opacity:0}to{opacity:1}}
 .glow{position:absolute;border-radius:50%;background:radial-gradient(50% 50% at 50% 50%,rgba(255,176,84,.5),transparent 70%);animation:flick 1.8s ease-in-out infinite alternate;pointer-events:none}
 @keyframes flick{from{opacity:.45;transform:scale(.92)}to{opacity:1;transform:scale(1.09)}}
 .petal-field,.sec-petals{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:6}
 .sec-petals{z-index:1}
-.petal{position:absolute;left:0;top:var(--pt,10%);pointer-events:none;opacity:0;filter:hue-rotate(-28deg) saturate(2.1) brightness(1.05);animation:petalDrift var(--pd,18s) linear infinite;animation-delay:var(--pdl,0s)}
+.petal{position:absolute;left:0;top:var(--pt,10%);pointer-events:none;opacity:0;filter:hue-rotate(-28deg) saturate(1.25) brightness(1.02);animation:petalDrift var(--pd,18s) linear infinite;animation-delay:var(--pdl,0s)}
 @keyframes petalDrift{0%{transform:translate3d(-70px,0,0) rotate(0deg) scaleX(1);opacity:0}6%{opacity:.85}25%{transform:translate3d(118px,var(--y25,12px),0) rotate(92deg) scaleX(.68)}50%{transform:translate3d(243px,var(--y50,22px),0) rotate(178deg) scaleX(1)}75%{transform:translate3d(368px,var(--y75,36px),0) rotate(266deg) scaleX(.68)}94%{opacity:.85}100%{transform:translate3d(505px,var(--ye,52px),0) rotate(352deg) scaleX(1);opacity:0}}
 .ffly-field{position:absolute;inset:0;z-index:4;pointer-events:none;overflow:hidden}
 .ffly{position:absolute;border-radius:50%;pointer-events:none;opacity:0;animation:fflyRise var(--fd,11s) linear infinite;animation-delay:var(--fdl,0s)}
@@ -72,10 +78,10 @@ main{position:relative;z-index:2}
 @keyframes twinkle{from{opacity:.12;transform:scale(.7)}to{opacity:.95;transform:scale(1.25)}}
 .cover-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,7,2,.34),transparent 26%,transparent 52%,rgba(18,7,2,.55));z-index:4;pointer-events:none}
 .cover-ui{position:absolute;inset:0;z-index:8;display:flex;flex-direction:column;align-items:center;text-align:center;padding:24px 26px 30px}
-.cover-kicker{margin-top:21%;font-family:Georgia,serif;font-weight:700;font-size:11.5px;letter-spacing:.42em;color:#fdf3dc;text-shadow:0 2px 14px rgba(10,4,0,.95);animation:fadeUp 1s 3.4s ease both}
-.cover-names{font-family:'Great Vibes',cursive;font-weight:400;margin-top:8px;font-size:67px;line-height:1.12;color:#fff8e9;text-shadow:0 2px 8px rgba(80,26,4,.7),0 0 28px rgba(244,193,104,.55),0 3px 22px rgba(10,4,0,.75);animation:fadeUp 1.1s 3.7s ease both}
+.cover-kicker{margin-top:21%;font-family:'Tongkonan Kicker',Georgia,serif;font-weight:700;font-size:13px;letter-spacing:.34em;color:#fdf3dc;text-shadow:0 2px 14px rgba(10,4,0,.95);animation:fadeUp 1s 3.4s ease both}
+.cover-names{font-family:'Tongkonan Display','Great Vibes',serif;font-weight:700;margin-top:10px;font-size:62px;line-height:1.08;letter-spacing:.012em;color:#fff8e9;text-shadow:0 2px 8px rgba(80,26,4,.7),0 0 28px rgba(244,193,104,.55),0 3px 22px rgba(10,4,0,.75);animation:fadeUp 1.1s 3.7s ease both}
 .cover-names .nm-line{display:block}
-.cover-names .amp{display:block;font-size:36px;line-height:.95;margin:-4px 0 -8px;color:transparent;background:linear-gradient(115deg,#9a5b14,#f4c168 42%,#fff3d0 55%,#e59a35);-webkit-background-clip:text;background-clip:text;filter:drop-shadow(0 2px 7px rgba(70,30,2,.65))}
+.cover-names .amp{display:block;font-size:34px;line-height:1;margin:0;color:transparent;background:linear-gradient(115deg,#9a5b14,#f4c168 42%,#fff3d0 55%,#e59a35);-webkit-background-clip:text;background-clip:text;filter:drop-shadow(0 2px 7px rgba(70,30,2,.65))}
 .cover-date{margin-top:8px;font-size:12.5px;letter-spacing:.3em;color:#ffe9bd;text-shadow:0 1px 8px rgba(70,26,2,.6);background:linear-gradient(135deg,rgba(112,26,16,.6),rgba(190,110,32,.45) 55%,rgba(112,26,16,.55));padding:6px 14px;border-radius:999px;border:1px solid rgba(255,226,170,.85);box-shadow:0 6px 18px rgba(10,4,0,.5),inset 0 1px 0 rgba(255,255,255,.4);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);animation:fadeUp 1s 4s ease both}
 .cover-spacer{flex:1}
 .cover-guest{color:#fdf3dc;font-size:12px;letter-spacing:.14em;text-shadow:0 2px 10px rgba(10,4,0,.95);animation:fadeUp 1s 4.3s ease both}
@@ -108,7 +114,7 @@ section .sec-head{text-shadow:0 2px 12px rgba(8,3,0,.9)}
 .couple-grid{display:grid;grid-template-columns:1fr;gap:34px}
 .person{text-align:center;background:linear-gradient(180deg,rgba(43,20,9,.8),rgba(28,12,5,.85));border:1px solid rgba(229,154,53,.42);border-radius:22px;padding:24px 16px 22px;box-shadow:0 14px 30px rgba(0,0,0,.5);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
 .person .frame-uk{height:340px;width:min(252px,76%);margin:0 auto}
-.person h3{font-family:'Great Vibes',cursive;font-size:37px;color:var(--bone);margin-top:16px;font-weight:400}
+.person h3{font-family:'Tongkonan Display','Great Vibes',serif;font-size:31px;letter-spacing:.01em;color:var(--bone);margin-top:16px;font-weight:700;line-height:1.25}
 .person .gelar{font-family:Georgia,serif;font-size:15.5px;color:var(--mut)}
 .person p{font-size:13.5px;line-height:1.65;color:var(--body);margin-top:8px}
 .ig-btn{display:inline-block;margin-top:12px;padding:8px 18px;border-radius:999px;border:1px solid var(--gold);color:var(--gold-l);font-size:12px;font-weight:600;letter-spacing:.08em;text-decoration:none;background:rgba(22,9,3,.55)}
@@ -161,7 +167,7 @@ section .sec-head{text-shadow:0 2px 12px rgba(8,3,0,.9)}
 .acc-num{font-size:21px;font-weight:700;letter-spacing:.1em;margin:8px 0 2px;color:var(--ink)}
 .acc-name{font-size:12.5px;color:var(--mut)}
 .copy-btn,.salin-btn{margin-top:12px;padding:9px 20px;border-radius:999px;border:1px solid var(--gold);background:rgba(22,9,3,.6);color:var(--gold-l);font-weight:700;font-size:12px;letter-spacing:.1em}
-.penutup-names{font-size:44px;color:var(--bone);line-height:1.2}
+.penutup-names{font-family:'Tongkonan Display','Great Vibes',serif;font-size:38px;font-weight:700;letter-spacing:.01em;color:var(--bone);line-height:1.25}
 .foot-note{text-align:center;font-size:11px;color:var(--mut);padding:0 44px 110px;line-height:1.7;position:relative;z-index:2}
 #btnMusic{position:fixed;right:calc(50% - 215px + 14px);bottom:86px;z-index:70;width:50px;height:50px;border-radius:50%;border:1px solid var(--gold-l);background:radial-gradient(circle at 32% 28%,#6d2013,#1c0a04 70%);box-shadow:0 10px 24px rgba(0,0,0,.65);display:none;align-items:center;justify-content:center}
 body.opened #btnMusic{display:flex}
@@ -229,7 +235,7 @@ body.opened #btnMusic{display:flex}
 @keyframes ornFloat{from{transform:translateY(0)}to{transform:translateY(-9px)}}
 .orn-spin{animation:ornSpin 48s linear infinite}
 @keyframes ornSpin{to{transform:rotate(360deg)}}
-.orn-hang{position:absolute;top:-4px;right:16px;width:58px;z-index:3;transform-origin:50% 0;animation:swayG 9s ease-in-out infinite alternate;filter:drop-shadow(0 8px 14px rgba(0,0,0,.5))}
+.orn-hang{position:absolute;top:-4px;right:16px;width:58px;z-index:3;transform-origin:50% 0;animation:swayG 4.3s cubic-bezier(.37,.02,.63,.98) infinite alternate;filter:drop-shadow(0 8px 14px rgba(0,0,0,.5))}
 /* MIKRO-ANIMASI teks kecil & ikon (CSS kompositor saja) */
 .sec-icon{display:block;animation:iconBob 5.4s ease-in-out infinite alternate}
 @keyframes iconBob{from{transform:translateY(0) rotate(-2.4deg)}to{transform:translateY(-5px) rotate(2.4deg)}}
@@ -324,6 +330,35 @@ body.opened #bottomNav{display:flex}
   .gate{transition:none}
 }
 
+/* ===== PROGRAM DETAIL 2026-11-12 (tema #17 Tongkonan Pusaka) ===== */
+/* E: background GAMBAR generate UNIK per section (tidak berbagi antar-section).
+   Semua file tongkonan-bg-*.webp sudah digelapkan saat proses (PIL brightness .42–.50)
+   sebagai scrim bawaan; kartu/panel gelap existing tetap menjaga kontras teks. */
+#sambutan{background-image:url('assets/undangya/tongkonan-pusaka/tongkonan-bg-sambutan.webp');background-size:cover;background-position:50% 30%}
+#mempelai{background-image:url('assets/undangya/tongkonan-pusaka/tongkonan-bg-mempelai.webp');background-size:cover;background-position:50% 22%}
+#kisah{background-image:url('assets/undangya/tongkonan-pusaka/tongkonan-bg-kisah.webp');background-size:cover;background-position:50% 38%}
+#acara{background-image:url('assets/undangya/tongkonan-pusaka/tongkonan-bg-acara.webp');background-size:cover;background-position:50% 30%}
+#galeri{background-image:url('assets/undangya/tongkonan-pusaka/tongkonan-bg-galeri.webp');background-size:cover;background-position:50% 50%}
+#cuplikan{background-image:url('assets/undangya/tongkonan-pusaka/tongkonan-bg-cuplikan.webp');background-size:cover;background-position:50% 30%}
+#live{background-image:url('assets/undangya/tongkonan-pusaka/tongkonan-bg-live.webp');background-size:cover;background-position:50% 35%}
+#rsvp{background-image:url('assets/undangya/tongkonan-pusaka/tongkonan-bg-rsvp.webp');background-size:cover;background-position:50% 30%}
+#bukutamu{background-image:url('assets/undangya/tongkonan-pusaka/tongkonan-bg-bukutamu.webp');background-size:cover;background-position:50% 30%}
+#amplop{background-image:url('assets/undangya/tongkonan-pusaka/tongkonan-bg-amplop.webp');background-size:cover;background-position:50% 30%}
+#turut{background-image:url('assets/undangya/tongkonan-pusaka/tongkonan-bg-turut.webp');background-size:cover;background-position:50% 32%}
+#penutup{background-image:url('assets/undangya/tongkonan-pusaka/tongkonan-bg-penutup.webp');background-size:cover;background-position:50% 18%}
+/* A3: gerbang bambu dirampingkan agar rumpun bunga bawah sampul tidak tertutup total */
+.gate{height:16.5%;opacity:.94}
+/* A2: tumpukan tanduk SVG mungil digantikan aset lukis (lihat markup sampul) — gaya wadah barunya */
+.cover-tanduk{position:absolute;left:1.5%;bottom:24%;width:13.5%;z-index:4;filter:drop-shadow(0 8px 16px rgba(10,3,0,.6))}
+/* B: kain tenun gantung di sisi sampul (kelas gantung, titik gantung atas diam) */
+.cover-tenun{position:absolute;top:0;width:12.5%;z-index:3;filter:drop-shadow(0 10px 16px rgba(10,3,0,.55));opacity:.96}
+/* A4: penanda rute lembah TIDAK lagi memudar (angka selalu terbaca) */
+.lembah-stop{animation:stopGlow 3s ease-in-out infinite alternate}
+@keyframes stopGlow{from{filter:brightness(1)}to{filter:brightness(1.28)}}
+@media (prefers-reduced-motion: reduce){
+  .cover-tanduk,.cover-tenun,.lembah-stop{animation:none !important}
+}
+
 </style>
 </head>
 <body>
@@ -345,23 +380,30 @@ body.opened #bottomNav{display:flex}
       <img class="lyr lyr-world" src="assets/undangya/tongkonan-pusaka/bg-world.webp" alt="">
       <img class="lyr lyr-tong" src="assets/undangya/tongkonan-pusaka/tongkonan.webp" alt="Rumah adat Tongkonan Toraja dengan atap perahu menjulang dan ukiran warna merah-hitam-emas">
       <svg class="sun-crest" viewBox="0 0 64 64" aria-hidden="true"><use href="#ic-sun"/></svg>
-      <img class="lyr gantung" style="left:2%;top:-1%;width:11%;--sd:8.4s" src="assets/undangya/tongkonan-pusaka/lentera.webp" alt="">
-      <img class="lyr gantung" style="right:2%;top:-1%;width:11%;--sd:9.4s;--sdl:-3s" src="assets/undangya/tongkonan-pusaka/lentera.webp" alt="">
+      <img class="lyr gantung" style="left:2%;top:-1%;width:11%;--sd:3.9s" src="assets/undangya/tongkonan-pusaka/lentera.webp" alt="">
+      <img class="lyr gantung" style="right:2%;top:-1%;width:11%;--sd:4.6s;--sdl:-3s" src="assets/undangya/tongkonan-pusaka/lentera.webp" alt="">
+      <img class="lyr gantung" style="left:15.5%;top:-1%;width:8%;--sd:5.2s;--sdl:-1.4s" src="assets/undangya/tongkonan-pusaka/lentera.webp" alt="">
+      <img class="lyr gantung" style="right:15.5%;top:-1%;width:8%;--sd:4.1s;--sdl:-2.2s" src="assets/undangya/tongkonan-pusaka/lentera.webp" alt="">
+      <img class="lyr gantung cover-tenun" style="left:-1.5%;--sd:5.5s;--sdl:-.8s" src="assets/undangya/tongkonan-pusaka/tongkonan-tenun.webp" alt="">
+      <img class="lyr gantung cover-tenun" style="right:-1.5%;--sd:4.7s;--sdl:-2.9s" src="assets/undangya/tongkonan-pusaka/tongkonan-tenun.webp" alt="">
       <div class="glow" style="left:0;top:12%;width:22%;height:11%"></div>
       <div class="glow" style="right:0;top:12%;width:22%;height:11%;animation-delay:.8s"></div>
       <!-- bunga/tanaman TEGAK bawah: pangkal diam di tanah, ujung melambai -->
-      <img class="lyr tegak flw-in" style="left:-4%;bottom:-2%;width:33%;--sd:8.2s;--ed:2.5s" src="assets/undangya/tongkonan-pusaka/flw-flamboyan.webp" alt="">
-      <img class="lyr tegak flw-in" style="right:-4%;bottom:-2%;width:33%;--sd:7.6s;--sdl:-2s;--ed:2.6s" src="assets/undangya/tongkonan-pusaka/flw-bougenville.webp" alt="">
-      <img class="lyr tegak flw-in" style="left:14%;bottom:-1.4%;width:19%;--sd:9s;--sdl:-4s;--ed:2.7s" src="assets/undangya/tongkonan-pusaka/tnm-pakis.webp" alt="">
-      <img class="lyr tegak flw-in" style="right:14%;bottom:-1.4%;width:19%;--sd:8.6s;--sdl:-1s;--ed:2.8s" src="assets/undangya/tongkonan-pusaka/tnm-pampas.webp" alt="">
-      <img class="lyr tegak flw-in" style="left:30%;bottom:-1%;width:12%;--sd:8s;--sdl:-3s;--ed:2.9s" src="assets/undangya/tongkonan-pusaka/flw-matahari.webp" alt="">
-      <img class="lyr tegak flw-in" style="right:30%;bottom:-1%;width:12%;--sd:8.8s;--sdl:-5s;--ed:3s" src="assets/undangya/tongkonan-pusaka/flw-krisan.webp" alt="">
+      <img class="lyr tegak flw-in" style="left:-4%;bottom:-2%;width:33%;--sd:4.2s;--ed:2.5s" src="assets/undangya/tongkonan-pusaka/flw-flamboyan.webp" alt="">
+      <img class="lyr tegak flw-in" style="right:-4%;bottom:-2%;width:33%;--sd:3.4s;--sdl:-2s;--ed:2.6s" src="assets/undangya/tongkonan-pusaka/flw-bougenville.webp" alt="">
+      <img class="lyr tegak flw-in" style="left:14%;bottom:-1.4%;width:19%;--sd:5.1s;--sdl:-4s;--ed:2.7s" src="assets/undangya/tongkonan-pusaka/tnm-pakis.webp" alt="">
+      <img class="lyr tegak flw-in" style="right:14%;bottom:-1.4%;width:19%;--sd:4.8s;--sdl:-1s;--ed:2.8s" src="assets/undangya/tongkonan-pusaka/tnm-pampas.webp" alt="">
+      <img class="lyr tegak flw-in" style="left:30%;bottom:-1%;width:12%;--sd:3.7s;--sdl:-3s;--ed:2.9s" src="assets/undangya/tongkonan-pusaka/flw-matahari.webp" alt="">
+      <img class="lyr tegak flw-in" style="right:30%;bottom:-1%;width:12%;--sd:5.4s;--sdl:-5s;--ed:3s" src="assets/undangya/tongkonan-pusaka/flw-krisan.webp" alt="">
+      <img class="lyr tegak flw-in" style="left:6%;bottom:-1.6%;width:21%;--sd:4.5s;--sdl:-1.7s;--ed:3.05s" src="assets/undangya/tongkonan-pusaka/tongkonan-bunga-kopi.webp" alt="">
+      <img class="lyr tegak flw-in" style="right:6%;bottom:-1.6%;width:21%;--sd:3.2s;--sdl:-.6s;--ed:3.1s" src="assets/undangya/tongkonan-pusaka/tongkonan-bunga-kopi.webp" alt="">
+      <img class="lyr tegak flw-in" style="left:42%;bottom:-1.2%;width:13%;--sd:5s;--sdl:-2.6s;--ed:3.15s" src="assets/undangya/tongkonan-pusaka/tnm-pakis.webp" alt="">
       <div class="sore-glow" aria-hidden="true"></div>
       <div class="smoke-field" aria-hidden="true"><span class="smoke" style="left:8%;width:34px;height:34px"></span><span class="smoke" style="left:34%;width:26px;height:26px;animation-delay:1.6s"></span><span class="smoke" style="left:56%;width:40px;height:40px;animation-delay:3.1s"></span><span class="smoke" style="left:24%;width:22px;height:22px;animation-delay:4.4s"></span><span class="smoke" style="left:66%;width:24px;height:24px;animation-delay:5.5s"></span></div>
       <div class="shimmer-wrap" aria-hidden="true"><div class="shimmer-band"></div></div>
       <img class="lyr alang-side" style="left:-3%" src="assets/undangya/tongkonan-pusaka/tongk-alang.webp" alt="" aria-hidden="true">
       <img class="lyr alang-side" style="right:-3%" src="assets/undangya/tongkonan-pusaka/tongk-alang.webp" alt="" aria-hidden="true">
-      <div class="horn-stack" aria-hidden="true"><svg viewBox="0 0 64 64"><use href="#ic-horn"/></svg><svg viewBox="0 0 64 64"><use href="#ic-horn"/></svg><svg viewBox="0 0 64 64"><use href="#ic-horn"/></svg><svg viewBox="0 0 64 64"><use href="#ic-horn"/></svg><svg viewBox="0 0 64 64"><use href="#ic-horn"/></svg></div>
+      <img class="cover-tanduk" src="assets/undangya/tongkonan-pusaka/tongkonan-tanduk-stack.webp" alt="" aria-hidden="true">
       <div class="gate gate-l" aria-hidden="true"><img src="assets/undangya/tongkonan-pusaka/tongk-gerbang-bambu.webp" alt=""></div>
       <div class="gate gate-r" aria-hidden="true"><img src="assets/undangya/tongkonan-pusaka/tongk-gerbang-bambu.webp" alt=""></div>
       <div class="ffly-field" id="fflyCover" aria-hidden="true"></div>
@@ -441,7 +483,7 @@ body.opened #bottomNav{display:flex}
         <p class="sec-sub rv rv-left d4">Perjalanan kisah kami, dari perjumpaan pertama hingga hari bahagia</p>
       </div>
       <div class="lembah-wrap rv rv-zoom">
-        <img class="lembah-bg" src="assets/undangya/tongkonan-pusaka/tongk-sawah-teras.webp" alt="Sawah bertingkat dan perbukitan lembah Toraja" loading="lazy" decoding="async">
+        <img class="lembah-bg" src="assets/undangya/tongkonan-pusaka/tongkonan-lembah.webp" alt="Sawah bertingkat dan perbukitan lembah Toraja" loading="lazy" decoding="async">
         <svg class="lembah-svg" viewBox="0 0 390 236" preserveAspectRatio="none" aria-hidden="true"><path class="lembah-path" d="M36 26 C120 78 96 118 180 138 S320 168 356 208"/></svg>
         <span class="lembah-stop" style="left:9%;top:11%">1</span><span class="lembah-stop" style="left:36%;top:47%">2</span><span class="lembah-stop" style="left:63%;top:62%">3</span><span class="lembah-stop" style="left:91%;top:88%">4</span>
         <span class="kopi-fall" style="left:22%;top:12%;width:11px;height:11px"></span><span class="kopi-fall" style="left:58%;top:6%;width:9px;height:9px;animation-delay:3.4s"></span><span class="kopi-fall" style="left:78%;top:20%;width:10px;height:10px;animation-delay:6.8s"></span>
@@ -723,7 +765,7 @@ body.opened #bottomNav{display:flex}
         <p class="rv rv-kick d2" style="margin-top:16px;font-size:12px;letter-spacing:.3em;color:var(--gold-l);font-weight:700">KAMI YANG BERBAHAGIA</p>
         <div class="penutup-names script rv rv-zoom d2" style="margin-top:6px">Meyzsa &amp; Fahrezzi</div>
         <p class="rv rv-kick d3" style="margin-top:12px;font-family:Georgia,serif;font-style:italic;font-size:16px;color:var(--mut)">Kurre sumange’ — terima kasih, dan sampai jumpa di hari bahagia.</p>
-        <img class="sec-orn" style="width:170px" src="assets/undangya/tongkonan-pusaka/tongk-tongkonan-mini.webp" alt="" loading="lazy" decoding="async">
+        <img class="sec-orn" style="width:190px" src="assets/undangya/tongkonan-pusaka/tongkonan-mini-lukis.webp" alt="" loading="lazy" decoding="async">
       </div>
     </section>
     <p class="foot-note rv rv-up">Undangan digital contoh “Tongkonan Pusaka” oleh UndangYa! — seluruh nama, tanggal, dan nomor adalah data contoh.<br>Musik latar: “Petals on the Stone Floor”.</p>
@@ -785,7 +827,7 @@ body.opened #bottomNav{display:flex}
       var img=document.createElement("img");
       img.className="petal"; img.src=PETALIMG; img.alt="";
       var dur=11+Math.random()*11, drop=26+Math.random()*64, bob=8+Math.random()*12;
-      img.style.width=(13+Math.random()*12).toFixed(0)+"px";
+      img.style.width=(field.id==="petalCover"?(9+Math.random()*7):(11+Math.random()*9)).toFixed(0)+"px";
       img.style.setProperty("--pt",(3+Math.random()*60).toFixed(1)+"%");
       img.style.setProperty("--pd",dur.toFixed(1)+"s");
       img.style.setProperty("--pdl",(-Math.random()*dur).toFixed(1)+"s");
